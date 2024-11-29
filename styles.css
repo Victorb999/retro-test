@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(#d1020a, #d102ac);
+  gap: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#social{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+.social-share-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+  width: 309px;
+  height: 500px;
+}
+#shareBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 16px;
+  background: #fff;
+  color: #d1020a;
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  padding: 8px;
+  width: 206px;
+  flex-shrink: 0;
+}
+
