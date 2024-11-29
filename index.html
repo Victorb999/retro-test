@@ -16,49 +16,13 @@
         <p>Welcome to the home page.</p>
       </div>
       <div id="social">
-        <button id="shareBtn">Share</button>
-        <!--<a href="instagram-stories://share" target="_blank">instagram</a>-->
-        <div class="social-share-buttons">
-          <button id="facebookShareBtn">Share on Facebook</button>
-          <button id="instagramShareBtn">Share on Instagram</button>
-          <button id="whatsappShareBtn">Share on WhatsApp</button>
-          <button id="tiktokShareBtn">Share on TikTok</button>
-        </div>
+        <button id="shareBtn">Share</button>  
       </div>
     </main>
   </body>
 </html>
 
 <script>
-  document.getElementById("facebookShareBtn").addEventListener("click", () => {
-    const url = encodeURIComponent(window.location.href);
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    window.open(facebookUrl, "_blank");
-  });
-
-  document.getElementById("instagramShareBtn").addEventListener("click", () => {
-    const url = encodeURIComponent(window.location.href);
-    const instagramUrl = `https://www.instagram.com/sharer.php?u=${url}`;
-    window.open(instagramUrl, "_blank");
-  });
-  document.getElementById("whatsappShareBtn").addEventListener("click", () => {
-    const text = encodeURIComponent("Check out this content! " + window.location.href);
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${text}`;
-    window.open(whatsappUrl, "_blank");
-  });
-
-  //The problem is that WhatsApp does not support direct image sharing via URL. Instead, you can share text content.
-
-  document.getElementById("tiktokShareBtn").addEventListener("click", () => {
-    const url = encodeURIComponent(window.location.href);
-    const tiktokUrl = `https://www.tiktok.com/share?url=${url}`;
-    window.open(tiktokUrl, "_blank");
-  });
-</script>
-
-<script>
-  
-
   document.addEventListener("DOMContentLoaded", () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
