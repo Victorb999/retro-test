@@ -12,23 +12,25 @@
   <body>
     <main class="container">
       <div class="card">
-        <h1>Home</h1>
-        <p>Welcome to the home page.</p>
+        <h1>Olá</h1>
+        <p>Bem vindo ao site de teste.</p>
       </div>
       <div id="social">
-        <button id="shareBtn">Share</button>  
+        <button id="shareBtn">Compartilhar</button>
       </div>
     </main>
   </body>
 </html>
 
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
+
+    if (isMobile || navigator.canShare) {
       console.log("Mobile device detected");
     } else {
-      console.log("Desktop device detected");
+      document.getElementById("shareBtn").innerHTML = "Baixar imagem";
     }
 
     document.getElementById("shareBtn").addEventListener("click", async () => {
