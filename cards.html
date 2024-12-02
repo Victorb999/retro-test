@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <title>Retrospectiva</title>
+  <style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .panel {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Estilos dos cards */
+  .panel:nth-child(1) { background-color: #33FF57; }
+  .panel:nth-child(2) { background-color: #33f1ff; }
+  .panel:nth-child(3) { background-color: #3357FF; }
+  .panel:nth-child(4) { background-color: #F3FF33; }
+  .panel:nth-child(5) { background-color: #FF33A1; }
+  .panel:nth-child(6) { background-color: #33FFF9; }
+  .panel:nth-child(7) { background-color: #FF8C33; }
+  .panel:nth-child(8) { background-color: #8C33FF; }
+  .panel:nth-child(9) { background-color: #3338FF; }
+  .panel:nth-child(10) { background-color: #FF3338; }
+  
+  /* Estilos da caixa com dados */
+  .data-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .data-box div {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: black;
+  }
+  
+  .error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+  }
+  
+  h2 {
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .shareBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 16px;
+    background: #fff;
+    color: #d1020a;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    padding: 8px;
+    width: 206px;
+    flex-shrink: 0;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="panel" id="card-abertura_mobile">
+      <h2>CARD 1 - Abertura Mobile</h2>
+      <div class="data-box">
+        <div id="name"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-abertura_mobile" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-PRODUTOS">
+      <h2>CARD 2 - PRODUTOS</h2>
+      <div class="data-box">
+        <div id="cyc"></div>
+        <div id="tot24"></div>
+        <div id="line1"></div>
+        <div id="line2"></div>
+        <div id="line3"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-PRODUTOS" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-MUTUALIDADE">
+      <h2>CARD 3 - MUTUALIDADE</h2>
+      <div class="data-box">
+        <div id="mut"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-MUTUALIDADE" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-CPV">
+      <h2>CARD 4 - CPV</h2>
+      <div class="data-box">
+        <div id="cpv"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-CPV" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-EKOS">
+      <h2>CARD 5 - EKOS</h2>
+      <div class="data-box">
+        <div id="ekos"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-EKOS" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-REFIL">
+      <h2>CARD 6 - REFIL</h2>
+      <div class="data-box">
+        <div id="kaik"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-REFIL" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-AVON">
+      <h2>CARD 7 - AVON</h2>
+      <div class="data-box">
+        <div id="ref"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-AVON" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-RECONHECIMENTO">
+      <h2>CARD 8 - RECONHECIMENTO</h2>
+      <div class="data-box">
+        <div id="avn"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-RECONHECIMENTO" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-ENCERRAMENTO">
+      <h2>CARD 9 - ENCERRAMENTO</h2>
+      <div class="data-box">
+        <div id="mov"></div>
+        <div id="hgh"></div>
+        <div id="camp"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-ENCERRAMENTO" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+    <div class="panel" id="card-CODIGO">
+      <h2>CARD 10 - CÓDIGO</h2>
+      <div class="data-box">
+        <div id="cod"></div>
+      </div>
+      <div class="social">
+        <button id="shareBtn-card-CODIGO" class="shareBtn">Compartilhar</button>
+      </div>
+    </div>
+  </div>
+  <div class="error-message" style="display: none;">Dados não encontrados</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector('.container');
+      const panels = document.querySelectorAll('.panel');
+      const errorMessage = document.querySelector('.error-message');
+      let currentSection = 0;
+      let isScrolling = false;
+
+      const totalSections = panels.length;
+
+      const rules = {
+        name: 1,
+        cyc: 2,
+        tot24: 2,
+        line1: 2,
+        line2: 2,
+        line3: 2,
+        mut: 3,
+        cpv: 4,
+        ekos: 5,
+        kaik: 6,
+        ref: 7,
+        avn: 8,
+        mov: 9,
+        hgh: 9,
+        camp: 9,
+        cod: 10
+      };
+
+      // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (!isMobile || !navigator.canShare) {
+        document.querySelectorAll(".shareBtn").forEach(btn => {
+          btn.innerHTML = "Baixar imagem";
+        });
+      }
+
+      const scrollToSection = (index) => {
+        if (index >= 0 && index < totalSections) {
+          isScrolling = true;
+          container.style.transform = `translateX(-${index * window.innerWidth}px)`;
+          setTimeout(() => {
+            isScrolling = false;
+          }, 800);
+        }
+      };
+
+      window.addEventListener('wheel', (e) => {
+        if (isScrolling) return;
+
+        if (e.deltaY > 0 && currentSection < totalSections - 1) {
+          currentSection++;
+        } else if (e.deltaY < 0 && currentSection > 0) {
+          currentSection--;
+        }
+
+        scrollToSection(currentSection);
+      });
+
+      let startX = 0;
+
+      container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      container.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - startX;
+
+        if (deltaX < -50 && currentSection < totalSections - 1) {
+          currentSection++;
+        } else if (deltaX > 50 && currentSection > 0) {
+          currentSection--;
+        }
+
+        scrollToSection(currentSection);
+      });
+
+      const getDecodedParams = () => {
+        const params = new URLSearchParams(window.location.search);
+        const base64Data = params.get('dados');
+        if (!base64Data) return null;
+
+        try {
+          const decoded = atob(base64Data);
+          const utf8Decoded = decodeURIComponent(escape(decoded)); // Corrige caracteres UTF-8
+          return JSON.parse(utf8Decoded);
+        } catch (error) {
+          console.error('Erro ao decodificar os parâmetros:', error);
+          return null;
+        }
+      };
+
+      const populateSlides = (params) => {
+        if (!params) {
+          container.style.display = 'none';
+          errorMessage.style.display = 'block';
+          return;
+        }
+
+        Object.entries(rules).forEach(([key, slideIndex]) => {
+          const slide = panels[slideIndex - 1];  // Ajusta o índice para ser baseado em 0
+
+          const div = document.getElementById(key);
+          if (div && params[key]) {
+            div.textContent = `${params[key]}`;  // Preenche o conteúdo da div
+          }
+        });
+      };
+
+      const params = getDecodedParams();
+      populateSlides(params);
+    });
+
+    document.querySelectorAll(".shareBtn").forEach(button => {
+      button.addEventListener("click", async () => {
+      const panel = button.closest(".panel");
+      const social = panel.querySelector(".social");
+      social.style.display = "none";
+      const panelId = panel.id;
+      const canvas = await html2canvas(document.getElementById(panelId));
+      const dataUrl = canvas.toDataURL("image/png");
+
+      if (navigator.share) {
+        const response = await fetch(dataUrl);
+        const blob = await response.blob();
+        const file = new File([blob], "content.png", { type: "image/png" });
+        await navigator
+        .share({
+          title: "Retrospectiva",
+          text: "Confira este conteúdo!",
+          files: [file],
+        })
+        .then(() => {
+          console.log("Conteúdo compartilhado com sucesso");
+        })
+        .catch((error) => {
+          console.error("Erro ao compartilhar conteúdo:", error);
+        });
+      } else {
+        console.log("Web Share API não suportada. Baixando imagem em vez disso.");
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "content.png";
+        link.click();
+      }
+      social.style.display = "flex";
+      });
+    });
+  </script>
+</body>
+</html>
+
+<script>
+  const generateRandomParams = () => {
+    const params = {
+      name: 'Nome Aleatório',
+      cyc: Math.floor(Math.random() * 100),
+      tot24: Math.floor(Math.random() * 100),
+      line1: 'Linha 1 Aleatória',
+      line2: 'Linha 2 Aleatória',
+      line3: 'Linha 3 Aleatória',
+      mut: Math.floor(Math.random() * 100),
+      cpv: Math.floor(Math.random() * 100),
+      ekos: Math.floor(Math.random() * 100),
+      kaik: Math.floor(Math.random() * 100),
+      ref: Math.floor(Math.random() * 100),
+      avn: Math.floor(Math.random() * 100),
+      mov: Math.floor(Math.random() * 100),
+      hgh: Math.floor(Math.random() * 100),
+      camp: Math.floor(Math.random() * 100),
+      cod: Math.floor(Math.random() * 100)
+    };
+
+    const jsonString = JSON.stringify(params);
+    const base64String = btoa(unescape(encodeURIComponent(jsonString)));
+    const url = `${window.location.origin}${window.location.pathname}?dados=${base64String}`;
+    console.log(url);
+  };
+
+  generateRandomParams();
+</script>
