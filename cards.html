@@ -209,6 +209,9 @@
   </div>
   <div class="error-message" style="display: none;">Dados não encontrados</div>
   <script>
+    // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
     document.addEventListener("DOMContentLoaded", () => {
       const container = document.querySelector('.container');
       const panels = document.querySelectorAll('.panel');
@@ -237,8 +240,6 @@
         cod: 10
       };
 
-      // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       if (!isMobile || !navigator.canShare) {
         document.querySelectorAll(".shareBtn").forEach(btn => {
           btn.innerHTML = "Baixar imagem";
@@ -331,6 +332,22 @@
       const canvas = await html2canvas(document.getElementById(panelId));
       const dataUrl = canvas.toDataURL("image/png");
 
+      const dataLayerObject = {
+        'event': isMobile ? 'Compartilhar' : 'Baixar',
+        'eventCategory': 'Retrospectiva',
+        'eventAction': isMobile ? 'Compartilhar' : 'Baixar',
+        'eventLabel': 'Categoria',
+        'eventDimensions': '[Retrospectiva] area de acesso',
+        'eventTag': isMobile ? 'click-share-retrospectiva' : 'click-download-retrospectiva'
+      }
+      console.log(dataLayerObject);
+
+      try{
+        dataLayer.push(dataLayerObject);
+      } catch (error) {
+        console.error('Erro ao acessar o dataLayer:', error);
+      }
+
       if (navigator.share && isMobile) {
         const response = await fetch(dataUrl);
         const blob = await response.blob();
@@ -349,9 +366,12 @@
         });
       } else {
         const link = document.createElement("a");
-        link.href = dataUrl;
+        const blob = await (await fetch(dataUrl)).blob();
+        const url = URL.createObjectURL(blob);
+        link.href = url;
         link.download = "content.png";
         link.click();
+        URL.revokeObjectURL(url);
       }
       social.style.display = "flex";
       });
