@@ -331,7 +331,7 @@
       const canvas = await html2canvas(document.getElementById(panelId));
       const dataUrl = canvas.toDataURL("image/png");
 
-      if (navigator.share) {
+      if (navigator.share && isMobile) {
         const response = await fetch(dataUrl);
         const blob = await response.blob();
         const file = new File([blob], "content.png", { type: "image/png" });
@@ -348,7 +348,6 @@
           console.error("Erro ao compartilhar conteúdo:", error);
         });
       } else {
-        console.log("Web Share API não suportada. Baixando imagem em vez disso.");
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = "content.png";
@@ -360,33 +359,3 @@
   </script>
 </body>
 </html>
-
-<script>
-  const generateRandomParams = () => {
-    const params = {
-      name: 'Nome Aleatório',
-      cyc: Math.floor(Math.random() * 100),
-      tot24: Math.floor(Math.random() * 100),
-      line1: 'Linha 1 Aleatória',
-      line2: 'Linha 2 Aleatória',
-      line3: 'Linha 3 Aleatória',
-      mut: Math.floor(Math.random() * 100),
-      cpv: Math.floor(Math.random() * 100),
-      ekos: Math.floor(Math.random() * 100),
-      kaik: Math.floor(Math.random() * 100),
-      ref: Math.floor(Math.random() * 100),
-      avn: Math.floor(Math.random() * 100),
-      mov: Math.floor(Math.random() * 100),
-      hgh: Math.floor(Math.random() * 100),
-      camp: Math.floor(Math.random() * 100),
-      cod: Math.floor(Math.random() * 100)
-    };
-
-    const jsonString = JSON.stringify(params);
-    const base64String = btoa(unescape(encodeURIComponent(jsonString)));
-    const url = `${window.location.origin}${window.location.pathname}?dados=${base64String}`;
-    console.log(url);
-  };
-
-  generateRandomParams();
-</script>
