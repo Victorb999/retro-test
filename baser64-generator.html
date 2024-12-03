@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON to Base64</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #d1020a;
+    }
+    .text {
+      padding: 8px;
+      background-color: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #base64Output {
+      width: 80vw;
+      word-break: break-all;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #000;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    #jsonInput {
+      width: 80vw;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+
+  <body>
+    <h1>JSON to Base64 Converter</h1>
+    <div class="text">
+      <textarea id="jsonInput" cols="80" rows="20" placeholder=""></textarea>
+      <h1 id="base64Output"></h1>
+    </div>
+
+    <script>
+      const jsonObject = {
+        name: "Maria",
+        cyc: "5",
+        tot24: "300 itens vendidos (tot24)",
+        line1: "COLOR TREND",
+        line2: "HOMEM",
+        line3: "TODODIA",
+        mut: "Natura",
+        cpv: "4247",
+        ekos: "0",
+        kaik: "0",
+        ref: "59",
+        avn: "60",
+        mov: "MANTEVE",
+        hgh: "sim",
+        camp: "3",
+        cod: "111111",
+      }
+      document.querySelector("#jsonInput").textContent = JSON.stringify(
+        jsonObject,
+        null,
+        2
+      )
+
+      document
+        .getElementById("jsonInput")
+        .addEventListener("input", function () {
+          const inputText = this.value
+          try {
+            const parsedJson = JSON.parse(inputText)
+            const jsonString = JSON.stringify(parsedJson)
+            const base64String = btoa(jsonString)
+            document.getElementById("base64Output").textContent = base64String
+            link.href = `cards.html?dados=${base64String}`
+          } catch (e) {
+            document.getElementById("base64Output").textContent = "Invalid JSON"
+            link.href = "#"
+          }
+        })
+
+      const jsonString = JSON.stringify(jsonObject)
+      const base64String = btoa(jsonString)
+
+      document.getElementById("base64Output").textContent = base64String
+      const link = document.createElement("a")
+      link.href = `cards.html?dados=${base64String}`
+      link.textContent = "Go to Card"
+      link.style.marginTop = "20px"
+      link.style.display = "block"
+      document.body.appendChild(link)
+    </script>
+  </body>
+</html>
