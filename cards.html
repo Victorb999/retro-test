@@ -474,22 +474,24 @@
       // Adiciona eventos de clique nos botões de compartilhamento
       document.querySelectorAll(".shareBtn").forEach((button) => {
 
-        if(isMobile){
-          const social = panel.querySelector(".social");
+        // Adiciona botão de download para dispositivos móveis
+        if(isMobile && navigator.canShare){
+          console.log("entrou")
           const downloadButton = document.createElement("button");
           downloadButton.textContent = "Baixar imagem";
           downloadButton.className = "shareBtn";
+
           downloadButton.addEventListener("click", async () => {
+            const social = panel.querySelector(".social");
             social.style.display = "none";
-            const panel = button.closest(".panel");
-            const panelId = panel.id;
             const dataUrl = await printPanel(button, panelId);
             await downloadPrint(dataUrl);
             social.style.display = "flex";
           });
-          social.appendChild(downloadButton);
+          button.after(downloadButton);
         }
 
+        // Adiciona evento de clique no botão de compartilhamento
         button.addEventListener("click", async () => {
           const panel = button.closest(".panel");
           const panelId = panel.id;
