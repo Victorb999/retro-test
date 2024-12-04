@@ -473,6 +473,20 @@
 
       // Adiciona eventos de clique nos botões de compartilhamento
       document.querySelectorAll(".shareBtn").forEach((button) => {
+
+        if(isMobile){
+          const downloadButton = document.createElement("button");
+          downloadButton.textContent = "Baixar imagem";
+          downloadButton.className = "shareBtn";
+          downloadButton.addEventListener("click", async () => {
+            const panel = button.closest(".panel");
+            const panelId = panel.id;
+            const dataUrl = await printPanel(button, panelId);
+            await downloadPrint(dataUrl);
+          });
+          social.appendChild(downloadButton);
+        }
+
         button.addEventListener("click", async () => {
           const panel = button.closest(".panel");
           const panelId = panel.id;
@@ -483,17 +497,6 @@
           callGTMButton();
 
           if (navigator.share && isMobile) {
-            const downloadButton = document.createElement("button");
-            downloadButton.textContent = "Baixar imagem";
-            downloadButton.className = "shareBtn";
-            downloadButton.addEventListener("click", async () => {
-              const panel = button.closest(".panel");
-              const panelId = panel.id;
-              const dataUrl = await printPanel(button, panelId);
-              await downloadPrint(dataUrl);
-            });
-            social.appendChild(downloadButton);
-
             const response = await fetch(dataUrl);
             const blob = await response.blob();
             const file = new File([blob], "content.png", {
