@@ -455,7 +455,9 @@
             downloadButton.textContent = "Baixar imagem";
             downloadButton.className = "shareBtn";
             downloadButton.addEventListener("click", async () => {
-              const dataUrl = await printPanel(button);
+              const panel = button.closest(".panel");
+              const panelId = panel.id;
+              const dataUrl = await printPanel(button, panelId);
               await downloadPrint(dataUrl);
             });
             social.appendChild(downloadButton);
