@@ -475,14 +475,17 @@
       document.querySelectorAll(".shareBtn").forEach((button) => {
 
         if(isMobile){
+          const social = panel.querySelector(".social");
           const downloadButton = document.createElement("button");
           downloadButton.textContent = "Baixar imagem";
           downloadButton.className = "shareBtn";
           downloadButton.addEventListener("click", async () => {
+            social.style.display = "none";
             const panel = button.closest(".panel");
             const panelId = panel.id;
             const dataUrl = await printPanel(button, panelId);
             await downloadPrint(dataUrl);
+            social.style.display = "flex";
           });
           social.appendChild(downloadButton);
         }
