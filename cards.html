@@ -482,6 +482,8 @@
           downloadButton.className = "shareBtn";
 
           downloadButton.addEventListener("click", async () => {
+            const panel = button.closest(".panel");
+            const panelId = panel.id;
             const social = panel.querySelector(".social");
             social.style.display = "none";
             const dataUrl = await printPanel(button, panelId);
