@@ -242,6 +242,11 @@
             <div id="camp"></div>
             campanhas
           </p>
+
+          <p>
+            <div id="level"></div>
+            level
+          </p>
         </div>
         <div class="social">
           <button id="shareBtn-card-RECONHECIMENTO" class="shareBtn">
@@ -277,7 +282,7 @@
 
         try {
           const decoded = atob(base64Data);
-          const utf8Decoded = decodeURIComponent(escape(decoded)); // Corrige caracteres UTF-8
+          const utf8Decoded = decodeURIComponent(encodeURIComponent(decoded)); // Corrige caracteres UTF-8
           return JSON.parse(utf8Decoded);
         } catch (error) {
           console.error("Erro ao decodificar os parâmetros:", error);
@@ -306,6 +311,7 @@
         "hgh",
         "camp",
         "cod",
+        "level"
       ];
 
       // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
@@ -364,7 +370,7 @@
         //CARD 3 - MUTUALIDADE
         if (!isValid(params.mut)) hideElement("card-MUTUALIDADE");
         //CARD 4 - CPV
-        if (!isValid(params.cpv)) hideElement("card-CPV");
+        if (params.cpv < 10) hideElement("card-CPV");
         //CARD 5 - EKOS
         if (params.ekos < 10) hideElement("card-EKOS");
         //CARD 6 - REFIL
@@ -373,8 +379,9 @@
         if (params.avn < 10) hideElement("card-AVON");
         //CARD 8 - RECONHECIMENTO
         if (!isValid(params.mov)) hideElement("mov");
-        if (!isValid(params.hgh)) hideElement("hgh");
+        if (params.hgh !== 'sim') hideElement("hgh");
         if (params.camp <= 0) hideElement("camp");
+        if (!isValid(params.level)) hideElement("level");
       };
 
       // Executa as funções
