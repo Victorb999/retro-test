@@ -5,261 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <title>Retrospectiva</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        background-color: white;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .container {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-      }
-      .panel {
-        flex: 0 0 100%;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-      }
-
-      /* Estilos dos cards */
-      .panel:nth-child(1) {
-        background-color: #d1020a;
-      }
-      .panel:nth-child(2) {
-        background-color: #f3742e;
-      }
-      .panel:nth-child(3) {
-        background-color: #b37c56;
-      }
-      .panel:nth-child(4) {
-        background-color: #42593a;
-      }
-      .panel:nth-child(5) {
-        background-color: #313b2e;
-      }
-      .panel:nth-child(6) {
-        background-color: #ebceb9;
-      }
-      .panel:nth-child(7) {
-        background-color: #ab1875;
-      }
-      .panel:nth-child(8) {
-        background-color: #e6004d;
-      }
-      .panel:nth-child(9) {
-        background-color: #eb661a;
-      }
-
-      /* Estilos da caixa com dados */
-      .data-box {
-        background-color: white;
-        padding: 20px;
-        border-radius: 15px;
-        width: 80%;
-        max-width: 400px;
-        text-align: left;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-      .data-box div {
-        margin: 5px 0;
-        font-size: 1.2rem;
-        color: black;
-      }
-
-      .error-message {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 2rem;
-        font-weight: bold;
-        color: red;
-        text-align: center;
-      }
-
-      h2 {
-        color: black;
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-
-      .social {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        flex-direction: column;
-      }
-
-      .shareBtn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        border-radius: 16px;
-        background: #fff;
-        color: #d1020a;
-        font-weight: bold;
-        border: none;
-        border-radius: 8px;
-        height: 40px;
-        padding: 8px;
-        width: 206px;
-        flex-shrink: 0;
-      }
-      ul{
-        list-style-type: none;
-        padding: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="panel" id="card-abertura_mobile">
-        <h2>CARD 1 - Abertura Mobile</h2>
+      <div class="panel" id="card-Abertura">
+        <h2>CARD 1 - Abertura</h2>
         <div class="data-box">
-          <div id="name"></div>
-        </div>
-        <div class="social">
-          <button id="shareBtn-card-abertura_mobile" class="shareBtn">
-            Compartilhar
-          </button>
-        </div>
-      </div>
-      <div class="panel" id="card-PRODUTOS">
-        <h2>CARD 2 - PRODUTOS</h2>
-        <div class="data-box">
-          <p>
-            <div id="cyc"></div>
-            Ciclos
-          </p>
-          <p>
-            <div id="tot24"></div>
-            Produtos
-          </p>
-          <div id="lines">
-            <ul>
-              <li><div id="line1"></div></li>
-              <li><div id="line2"></div></li>
-              <li><div id="line3"></div></li>
-            </ul>
+          <div id="section-Abertura">
+            <span id="name"></span>
           </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-PRODUTOS" class="shareBtn">
+          <button id="shareBtn-card-Abertura" class="shareBtn">
             Compartilhar
           </button>
         </div>
       </div>
-      <div class="panel" id="card-MUTUALIDADE">
-        <h2>CARD 3 - MUTUALIDADE</h2>
+      <div class="panel" id="card-Produtos">
+        <h2>CARD 2 - Produtos</h2>
         <div class="data-box">
-          <p>
-            Consultora:
-            <div id="mut"></div>
-          </p>
+          <div id="section-Produtos-cyc">
+            <span id="cyc"></span>
+            Ciclos
+          </div>
+          <div id="section-Produtos-tot24">
+            <span id="tot24"></span>
+            Produtos
+          </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-MUTUALIDADE" class="shareBtn">
+          <button id="shareBtn-card-Produtos" class="shareBtn">
+            Compartilhar
+          </button>
+        </div>
+      </div>
+      <div class="panel" id="card-Linhas">
+        <h2>CARD 3 - Linhas</h2>
+        <div class="data-box">
+          <div id="section-Linhas">
+            <span id="line1"></span>
+            <span id="line2"></span>
+            <span id="line3"></span>
+          </div>
+        </div>
+        <div class="social">
+          <button id="shareBtn-card-Linhas" class="shareBtn">
+            Compartilhar
+          </button>
+        </div>
+      </div>
+      <div class="panel" id="card-Mutualidade">
+        <h2>CARD 4 - Mutualidade</h2>
+        <div class="data-box">
+          <div id="section-Mutualidade">
+            Consultora:
+            <span id="mut"></span>
+          </div>
+        </div>
+        <div class="social">
+          <button id="shareBtn-card-Mutualidade" class="shareBtn">
             Compartilhar
           </button>
         </div>
       </div>
       <div class="panel" id="card-CPV">
-        <h2>CARD 4 - CPV</h2>
+        <h2>CARD 5 - CPV</h2>
         <div class="data-box">
-          <p>
-            <div id="cpv"></div>
+          <div id="section-CPV">
+            <span id="cpv"></span>
             Produtos Crer Para Ver em 2024!
-          </p>
+          </div>
         </div>
         <div class="social">
           <button id="shareBtn-card-CPV" class="shareBtn">Compartilhar</button>
         </div>
       </div>
-      <div class="panel" id="card-EKOS">
-        <h2>CARD 5 - EKOS</h2>
+      <div class="panel" id="card-Ekos">
+        <h2>CARD 6 - Ekos</h2>
         <div class="data-box">
-          <p>
-            <div id="ekos"></div>
+          <div id="section-Ekos">
+            <span id="ekos"></span>
             produtos Ekos em 2024!
-          </p>
+          </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-EKOS" class="shareBtn">Compartilhar</button>
+          <button id="shareBtn-card-Ekos" class="shareBtn">Compartilhar</button>
         </div>
       </div>
-      <div class="panel" id="card-REFIL">
-        <h2>CARD 6 - REFIL</h2>
+      <div class="panel" id="card-Kaiak">
+        <h2>CARD 7 - Kaiak</h2>
         <div class="data-box">
-          <p>
-            <div id="ref"></div>
-            produtos em Refil em 2024!
-          </p>
+          <div id="section-Kaiak">
+            <span id="kaik"></span>
+            produtos Ekos em 2024!
+          </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-REFIL" class="shareBtn">
+          <button id="shareBtn-card-Kaiak" class="shareBtn">
             Compartilhar
           </button>
         </div>
       </div>
-      <div class="panel" id="card-AVON">
-        <h2>CARD 7 - AVON</h2>
+      <div class="panel" id="card-Refil">
+        <h2>CARD 8 - Refil</h2>
         <div class="data-box">
-          <p>
-            <div id="avn"></div>
-            produtos Oferta do Bem Avon em 2024!
-          </p>
+          <div id="section-Refil">
+            <span id="ref"></span>
+            produtos em Refil em 2024!
+          </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-AVON" class="shareBtn">Compartilhar</button>
+          <button id="shareBtn-card-Refil" class="shareBtn">
+            Compartilhar
+          </button>
         </div>
       </div>
-      <div class="panel" id="card-RECONHECIMENTO">
-        <h2>CARD 8 - RECONHECIMENTO</h2>
+      <div class="panel" id="card-Avon">
+        <h2>CARD 9 - Avon</h2>
         <div class="data-box">
-          <p>
-            Em 2024, você se tornou uma
-            <div id="mov"></div>
-          </p>
-          <p>
-            <div id="hgh"></div>
-            foi destaque
-          </p>
-          <p>
-            <div id="camp"></div>
-            campanhas
-          </p>
-
-          <p>
-            <div id="level"></div>
-            level
-          </p>
+          <div id="section-Avon">
+            <span id="avn"></span>
+            produtos Oferta do Bem Avon em 2024!
+          </div>
         </div>
         <div class="social">
-          <button id="shareBtn-card-RECONHECIMENTO" class="shareBtn">
+          <button id="shareBtn-card-Avon" class="shareBtn">Compartilhar</button>
+        </div>
+      </div>
+      <div class="panel" id="card-Reconhecimento">
+        <h2>CARD 10 - Reconhecimento</h2>
+        <div class="data-box">
+          <div id="section-Reconhecimento-hgh">foi destaque</div>
+          <div id="section-Reconhecimento-camp">
+            <span id="camp"></span>
+            <span>Campanhas</span>
+          </div>
+        </div>
+        <div class="social">
+          <button id="shareBtn-card-Reconhecimento" class="shareBtn">
+            Compartilhar
+          </button>
+        </div>
+      </div>
+      <div class="panel" id="card-Nivel">
+        <h2>CARD 11 - Nivel</h2>
+        <div class="data-box">
+          <div id="section-Nivel">subiu de nível</div>
+        </div>
+        <div class="social">
+          <button id="shareBtn-card-Nivel" class="shareBtn">
             Compartilhar
           </button>
         </div>
       </div>
       <div class="panel" id="card-ENCERRAMENTO">
-        <h2>CARD 9 - ENCERRAMENTO</h2>
+        <h2>CARD 12 - Encerramento</h2>
         <div class="data-box">
           <p>Viu só? Você brilhou muito neste ano! Parabéns!</p>
         </div>
@@ -267,277 +168,5 @@
     </div>
     <div class="error-message" style="display: none">Dados não encontrados</div>
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.querySelector(".container");
-      const panels = document.querySelectorAll(".panel");
-      const errorMessage = document.querySelector(".error-message");
-      let currentSection = 0;
-      let isScrolling = false;
-
-      // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-      // FUNÇÃO PARA DECODIFICAR OS PARÂMETROS
-      const getDecodedParams = () => {
-        const params = new URLSearchParams(window.location.search);
-        const base64Data = params.get("dados");
-        if (!base64Data) return null;
-
-        try {
-          const decoded = atob(base64Data);
-          const utf8Decoded = decodeURIComponent(encodeURIComponent(decoded)); // Corrige caracteres UTF-8
-          return JSON.parse(utf8Decoded);
-        } catch (error) {
-          console.error("Erro ao decodificar os parâmetros:", error);
-          return null;
-        }
-      };
-
-      // SETA OS PARAMS
-      const params = getDecodedParams();
-
-      // Array com nome dos campos esperados no JSON
-      const rules = [
-        "name",
-        "cyc",
-        "tot24",
-        "line1",
-        "line2",
-        "line3",
-        "mut",
-        "cpv",
-        "ekos",
-        "kaik",
-        "ref",
-        "avn",
-        "mov",
-        "hgh",
-        "camp",
-        "cod",
-        "level"
-      ];
-
-      // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
-      if (!isMobile || !navigator.canShare) {
-        document.querySelectorAll(".shareBtn").forEach((btn) => {
-          btn.innerHTML = "Baixar imagem";
-        });
-      }
-
-      // Preenche os slides com os dados
-      const populateSlides = () => {
-        if (!params) {
-          container.style.display = "none";
-          errorMessage.style.display = "block";
-          return;
-        }
-        rules.forEach((key, slideIndex) => {
-          const slide = panels[slideIndex - 1]; // Ajusta o índice para ser baseado em 0
-
-          const div = document.getElementById(key);
-          if (div && params[key]) {
-            div.textContent = `${params[key]}`; // Preenche o conteúdo da div
-          }
-        });
-      };
-
-      // Verifica se o valor é válido
-      const isValid = (value) => {
-        return value !== undefined && value !== null && value !== "" && value !== "null";
-      };
-
-      // regras para esconder os cards
-      const rulesShow = () => {
-        const hideElement = (id) => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.style.display = "none";
-          }
-        };
-        //CARD 2- PRODUTOS
-        if (params.cyc < 8) hideElement("cyc");
-        if (params.tot24 < 50) hideElement("tot24");
-        if (!isValid(params.line1)) hideElement("line1");
-        if (!isValid(params.line2)) hideElement("line2");
-        if (!isValid(params.line3)) hideElement("line3");
-        if (
-          !isValid(params.line1) &&
-          !isValid(params.line2) &&
-          !isValid(params.line3)
-        ) {
-          hideElement("lines");
-        }
-        if (params.cyc < 8 && params.tot24 < 50) {
-          hideElement("card-PRODUTOS");
-        }
-        //CARD 3 - MUTUALIDADE
-        if (!isValid(params.mut)) hideElement("card-MUTUALIDADE");
-        //CARD 4 - CPV
-        if (params.cpv < 10) hideElement("card-CPV");
-        //CARD 5 - EKOS
-        if (params.ekos < 10) hideElement("card-EKOS");
-        //CARD 6 - REFIL
-        if (params.ref < 10) hideElement("card-REFIL");
-        //CARD 7 - AVON
-        if (params.avn < 10) hideElement("card-AVON");
-        //CARD 8 - RECONHECIMENTO
-        if (!isValid(params.mov)) hideElement("mov");
-        if (params.hgh !== 'sim') hideElement("hgh");
-        if (params.camp <= 0) hideElement("camp");
-        if (!isValid(params.level)) hideElement("level");
-      };
-
-      // Executa as funções
-      populateSlides();
-      rulesShow();
-
-      // Conta o total de seções
-      const totalSections = Array.from(panels).filter(
-        (panel) => panel.style.display !== "none"
-      ).length;
-
-      // Função para rolar para a seção desejada
-      const scrollToSection = (index) => {
-        if (index >= 0 && index < totalSections) {
-          isScrolling = true;
-          container.style.transform = `translateX(-${
-            index * window.innerWidth
-          }px)`;
-          setTimeout(() => {
-            isScrolling = false;
-          }, 800);
-        }
-      };
-
-      // Função para chamar o GTM
-      const callGTMButton = () => {
-        const dataLayerObject = {
-          event: isMobile ? "Compartilhar" : "Baixar",
-          eventCategory: "Retrospectiva",
-          eventAction: isMobile ? "Compartilhar" : "Baixar",
-          eventLabel: "Categoria",
-          eventDimensions: "[Retrospectiva] area de acesso",
-          eventTag: isMobile
-            ? "click-share-retrospectiva"
-            : "click-download-retrospectiva",
-        };
-        console.log(dataLayerObject);
-
-        try {
-          dataLayer.push(dataLayerObject);
-        } catch (error) {
-          console.error("Erro ao acessar o dataLayer:", error);
-        }
-      };
-
-      // Função para converter o conteúdo do card em imagem
-      const printPanel = async (button, panelId) => {
-        const canvas = await html2canvas(document.getElementById(panelId));
-        return canvas.toDataURL("image/png");
-      };
-
-      // Função para baixar a imagem
-      const downloadPrint = async (dataUrl) => {
-        const link = document.createElement("a");
-        const blob = await (await fetch(dataUrl)).blob();
-        const url = URL.createObjectURL(blob);
-        link.href = url;
-        link.download = "content.png";
-        link.click();
-        URL.revokeObjectURL(url);
-      };
-
-      /* ===================================EVENTOS=================================*/
-
-      // Adiciona eventos de scroll
-      window.addEventListener("wheel", (e) => {
-        if (isScrolling) return;
-
-        if (e.deltaY > 0 && currentSection < totalSections - 1) {
-          currentSection++;
-        } else if (e.deltaY < 0 && currentSection > 0) {
-          currentSection--;
-        }
-        scrollToSection(currentSection);
-      });
-
-      // Adiciona eventos de touch
-      let startX = 0;
-      container.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-      });
-
-      // Adiciona eventos de touch
-      container.addEventListener("touchend", (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const deltaX = endX - startX;
-
-        if (deltaX < -50 && currentSection < totalSections - 1) {
-          currentSection++;
-        } else if (deltaX > 50 && currentSection > 0) {
-          currentSection--;
-        }
-
-        scrollToSection(currentSection);
-      });
-
-      // Adiciona eventos de clique nos botões de compartilhamento
-      document.querySelectorAll(".shareBtn").forEach((button) => {
-
-        // Adiciona botão de download para dispositivos móveis
-        if(isMobile && navigator.canShare){
-          console.log("entrou")
-          const downloadButton = document.createElement("button");
-          downloadButton.textContent = "Baixar imagem";
-          downloadButton.className = "shareBtn";
-
-          downloadButton.addEventListener("click", async () => {
-            const panel = button.closest(".panel");
-            const panelId = panel.id;
-            const social = panel.querySelector(".social");
-            social.style.display = "none";
-            const dataUrl = await printPanel(button, panelId);
-            await downloadPrint(dataUrl);
-            social.style.display = "flex";
-          });
-          button.after(downloadButton);
-        }
-
-        // Adiciona evento de clique no botão de compartilhamento
-        button.addEventListener("click", async () => {
-          const panel = button.closest(".panel");
-          const panelId = panel.id;
-          const social = panel.querySelector(".social");
-          social.style.display = "none";
-
-          const dataUrl = await printPanel(button, panelId);
-          callGTMButton();
-
-          if (navigator.share && isMobile) {
-            const response = await fetch(dataUrl);
-            const blob = await response.blob();
-            const file = new File([blob], "content.png", {
-              type: "image/png",
-            });
-            await navigator
-              .share({
-                title: "Retrospectiva",
-                text: "Confira este conteúdo!",
-                files: [file],
-              })
-              .then(() => {
-                console.log("Conteúdo compartilhado com sucesso");
-              })
-              .catch((error) => {
-                console.error("Erro ao compartilhar conteúdo:", error);
-              });
-          } else {
-            await downloadPrint(dataUrl);
-          }
-          social.style.display = "flex";
-        });
-      });
-    });
-  </script>
+  <script src="./script.js"></script>
 </html>

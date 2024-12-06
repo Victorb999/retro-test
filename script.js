@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
+    const dataLayerObject = {
+      eventTag: "view-retrospectiva",
+    };
+    console.log(dataLayerObject);
+  
+    try {
+      dataLayer.push(dataLayerObject);
+    } catch (error) {
+      console.error("Erro ao acessar o dataLayer:", error);
+    }
+  
     // FUNÇÃO PARA DECODIFICAR OS PARÂMETROS
     const getDecodedParams = () => {
       const params = new URLSearchParams(window.location.search);
@@ -75,7 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verifica se o valor é válido
     const isValid = (value) => {
       return (
-        value !== undefined && value !== null && value !== "" && value !== "null"
+        value !== undefined &&
+        value !== null &&
+        value !== "" &&
+        value !== "null" &&
+        value !== "NULL" &&
+        value !== "Null"
       );
     };
   
@@ -88,8 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       };
       //CARD 2- PRODUTOS
-      if (params.cyc < 8) hideElement("cyc");
-      if (params.tot24 < 50) hideElement("tot24");
+      if (params.cyc < 8) hideElement("section-Produtos-cyc");
+      if (params.tot24 < 50) hideElement("section-Produtos-tot24");
+      if (params.cyc < 8 && params.tot24 < 50) {
+        hideElement("card-Produtos");
+      }
+  
+      //CARD 3 - LINHAS
       if (!isValid(params.line1)) hideElement("line1");
       if (!isValid(params.line2)) hideElement("line2");
       if (!isValid(params.line3)) hideElement("line3");
@@ -98,26 +119,40 @@ document.addEventListener("DOMContentLoaded", () => {
         !isValid(params.line2) &&
         !isValid(params.line3)
       ) {
-        hideElement("lines");
+        hideElement("card-Linhas");
       }
-      if (params.cyc < 8 && params.tot24 < 50) {
-        hideElement("card-PRODUTOS");
+  
+      //CARD 4 - MUTUALIDADE
+      if (!isValid(params.mut)) hideElement("card-Mutualidade");
+  
+      //CARD 5 - CPV
+      if (params.cpv <= 0) hideElement("card-CPV");
+      if (params.cpv < 10) hideElement("section-CPV");
+      //CARD 6 - EKOS
+      if (params.ekos <= 0) hideElement("card-Ekos");
+      if (params.ekos < 10) hideElement("section-Ekos");
+      //CARD 7 - Kaiak
+      if (params.kaik <= 0) hideElement("card-Kaiak");
+      if (params.ref < 10) hideElement("section-Kaiak");
+      //CARD 8 - REFIL
+      if (params.ref <= 0) hideElement("card-Refil");
+      if (params.ref < 10) hideElement("section-Refil");
+      //CARD 9 - AVON
+      if (params.avn <= 0) hideElement("card-Avon");
+      if (params.avn < 10) hideElement("section-Avon");
+  
+      //CARD 10 - RECONHECIMENTO
+      if (params.hgh !== "sim") hideElement("section-Reconhecimento-hgh");
+      if (params.camp <= 0) hideElement("section-Reconhecimento-camp");
+      if (params.hgh !== "sim" && params.camp <= 0)
+        hideElement("card-Reconhecimento");
+      if (params.camp == 1) {
+        document.getElementById("section-Reconhecimento-camp").textContent =
+          "1 Campanha";
       }
-      //CARD 3 - MUTUALIDADE
-      if (!isValid(params.mut)) hideElement("card-MUTUALIDADE");
-      //CARD 4 - CPV
-      if (params.cpv < 10) hideElement("card-CPV");
-      //CARD 5 - EKOS
-      if (params.ekos < 10) hideElement("card-EKOS");
-      //CARD 6 - REFIL
-      if (params.ref < 10) hideElement("card-REFIL");
-      //CARD 7 - AVON
-      if (params.avn < 10) hideElement("card-AVON");
-      //CARD 8 - RECONHECIMENTO
-      if (!isValid(params.mov)) hideElement("mov");
-      if (params.hgh !== "sim") hideElement("hgh");
-      if (params.camp <= 0) hideElement("camp");
-      if (!isValid(params.level)) hideElement("level");
+  
+      //CARD 11 - NIVEL
+      if (params.mov !== "SUBIU") hideElement("card-Nivel");
     };
   
     // Executa as funções
@@ -143,11 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Função para chamar o GTM
     const callGTMButton = () => {
       const dataLayerObject = {
-        event: isMobile ? "Compartilhar" : "Baixar",
-        eventCategory: "Retrospectiva",
-        eventAction: isMobile ? "Compartilhar" : "Baixar",
-        eventLabel: "Categoria",
-        eventDimensions: "[Retrospectiva] area de acesso",
         eventTag: isMobile
           ? "click-share-retrospectiva"
           : "click-download-retrospectiva",
