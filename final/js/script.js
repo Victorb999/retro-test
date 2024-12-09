@@ -19,7 +19,16 @@ $(document).ready(function () {
 
   // Função para animar os parágrafos e p
   function animateWrapperParagraphs(wrapper) {
+    // Desabilita o botão de compartilhamento enquanto a animação ocorre
+    const buttonShare = wrapper
+      .closest(".wrapper")
+      .querySelector(".share-button")
+    if (buttonShare) {
+      buttonShare.disabled = true
+      buttonShare.querySelector(".sharebtnbase").style.background = "#ccc"
+    }
     // Seleciona os p com a classe "destaque"
+
     const destaqueParagraph = wrapper.querySelectorAll("p.destaque")
 
     // Seleciona os outros elementos p
@@ -52,6 +61,14 @@ $(document).ready(function () {
         }, index * 300) // 300ms de atraso entre os elementos
       })
     }
+
+    //hanilita o botao quando animação acaba
+    setTimeout(() => {
+      if (buttonShare) {
+        buttonShare.disabled = false
+        buttonShare.querySelector(".sharebtnbase").style.background = "#fff"
+      }
+    }, 3000)
   }
 
   // Função para configurar os parágrafos no estado final (opacidade 1)
@@ -99,37 +116,38 @@ $(document).ready(function () {
       // Configura o estado final diretamente caso o slide já tenha sido animado
       finalizeParagraphs(activeWrapper)
     }
+
   })
 
   /* // Modal logic
-  const modal = document.getElementById("modal")
-  const closeModal = modal.querySelector(".close")
-  const shareButtons = document.querySelectorAll(".share-button")
-
-  let currentWrapper = null
-
-  shareButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      currentWrapper = e.target.closest(".wrapper")
-      if (currentWrapper) {
-        openModal()
-      }
+    const modal = document.getElementById("modal")
+    const closeModal = modal.querySelector(".close")
+    const shareButtons = document.querySelectorAll(".share-button")
+  
+    let currentWrapper = null
+  
+    shareButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        currentWrapper = e.target.closest(".wrapper")
+        if (currentWrapper) {
+          openModal()
+        }
+      })
     })
-  })
-
-  function openModal() {
-    modal.style.display = "flex"
-  }
-
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none"
-  })
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none"
+  
+    function openModal() {
+      modal.style.display = "flex"
     }
-  }) */
+  
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none"
+    })
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none"
+      }
+    }) */
 
   // Configuração inicial: anima o primeiro slide ao carregar
   setTimeout(() => {
