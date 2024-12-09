@@ -232,8 +232,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("modal-button-1")
   // Adiciona evento de clique no botão de compartilhamento
   shareBtn.addEventListener("click", async () => {
-    const social = button.closest(".slider-nav")
-    social.style.display = "none"
+    const social = document.getElementsByClassName(".slider-nav")
+    social.forEach((element) => {
+      element.style.display = "none"
+    })
     modal.style.display = "none"
 
     const dataUrl = await printPanel()
@@ -259,19 +261,26 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       await downloadPrint(dataUrl)
     }
-    social.style.display = "flex"
+    social.forEach((element) => {
+      element.style.display = "flex"
+    })
   })
 
   // Adiciona evento de clique no botão de download
   const downloadBtn = document.getElementById("modal-button-2")
   downloadBtn.addEventListener("click", async () => {
-    const social = document.querySelector(".slider-nav")
+    const social = document.getElementsByClassName(".slider-nav")
+    social.forEach((element) => {
+      element.style.display = "none"
+    })
     social.style.display = "none"
     modal.style.display = "none"
 
     const dataUrl = await printPanel()
     await downloadPrint(dataUrl)
 
-    social.style.display = "flex"
+    social.forEach((element) => {
+      element.style.display = "flex"
+    })
   })
 })
