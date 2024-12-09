@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       await downloadPrint(dataUrl)
     }
-    social.forEach((element) => {
+    socialElements.forEach((element) => {
       element.style.display = "flex"
     })
   })
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dataUrl = await printPanel()
     await downloadPrint(dataUrl)
 
-    social.forEach((element) => {
+    socialElements.forEach((element) => {
       element.style.display = "flex"
     })
   })
