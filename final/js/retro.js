@@ -230,37 +230,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===================================EVENTOS=================================*/
 
-  // Adiciona eventos de clique nos botões de compartilhamento
-  document.querySelectorAll(".modal-button-1").forEach((button) => {
-    // Adiciona evento de clique no botão de compartilhamento
-    button.addEventListener("click", async () => {
-      const social = document.querySelector(".slider-nav")
-      social.style.display = "none"
+  const shareBtn = document.querySelectorAll("#modal-button-1")
+  // Adiciona evento de clique no botão de compartilhamento
+  shareBtn.addEventListener("click", async () => {
+    const social = document.querySelector(".slider-nav")
+    social.style.display = "none"
+    modal.style.display = "none"
 
-      const dataUrl = await printPanel()
+    const dataUrl = await printPanel()
 
-      if (navigator.share && isMobile) {
-        const response = await fetch(dataUrl)
-        const blob = await response.blob()
-        const file = new File([blob], "content.png", {
-          type: "image/png",
+    if (navigator.share && isMobile) {
+      const response = await fetch(dataUrl)
+      const blob = await response.blob()
+      const file = new File([blob], "content.png", {
+        type: "image/png",
+      })
+      await navigator
+        .share({
+          title: "Retrospectiva",
+          text: "Confira este conteúdo!",
+          files: [file],
         })
-        await navigator
-          .share({
-            title: "Retrospectiva",
-            text: "Confira este conteúdo!",
-            files: [file],
-          })
-          .then(() => {
-            console.log("Conteúdo compartilhado com sucesso")
-          })
-          .catch((error) => {
-            console.error("Erro ao compartilhar conteúdo:", error)
-          })
-      } else {
-        await downloadPrint(dataUrl)
-      }
-      social.style.display = "flex"
-    })
+        .then(() => {
+          console.log("Conteúdo compartilhado com sucesso")
+        })
+        .catch((error) => {
+          console.error("Erro ao compartilhar conteúdo:", error)
+        })
+    } else {
+      await downloadPrint(dataUrl)
+    }
+    social.style.display = "flex"
+  })
+
+  // Adiciona evento de clique no botão de download
+  const downloadBtn = document.querySelector("#modal-button-2")
+  downloadBtn.addEventListener("click", async () => {
+    const social = document.querySelector(".slider-nav")
+    social.style.display = "none"
+    modal.style.display = "none"
+
+    const dataUrl = await printPanel()
+    await downloadPrint(dataUrl)
+
+    social.style.display = "flex"
   })
 })
