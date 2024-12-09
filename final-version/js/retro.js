@@ -232,8 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("modal-button-1")
   // Adiciona evento de clique no botão de compartilhamento
   shareBtn.addEventListener("click", async () => {
-    const social = document.getElementsByClassName(".slider-nav")
-    social.forEach((element) => {
+    const socialElements = document.querySelectorAll(".slider-nav")
+    socialElements.forEach((element) => {
       element.style.display = "none"
     })
     modal.style.display = "none"
@@ -269,11 +269,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Adiciona evento de clique no botão de download
   const downloadBtn = document.getElementById("modal-button-2")
   downloadBtn.addEventListener("click", async () => {
-    const social = document.getElementsByClassName(".slider-nav")
-    social.forEach((element) => {
+    const socialElements = document.querySelectorAll(".slider-nav")
+    socialElements.forEach((element) => {
       element.style.display = "none"
     })
-    social.style.display = "none"
     modal.style.display = "none"
 
     const dataUrl = await printPanel()
