@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //CARD 3 - LINHAS
-    if (!isValid(params.line1)) removeElement("line1")
-    if (!isValid(params.line2)) removeElement("line2")
-    if (!isValid(params.line3)) removeElement("line3")
+    if (!isValid(params.line1)) removeElement("section-Linhas-line1")
+    if (!isValid(params.line2)) removeElement("section-Linhas-line2")
+    if (!isValid(params.line3)) removeElement("section-Linhas-line3")
     if (
       !isValid(params.line1) &&
       !isValid(params.line2) &&
@@ -156,8 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       removeElement("card-Reconhecimento")
     }
     if (params.camp == 1) {
-      document.getElementById("section-Reconhecimento-camp").textContent =
-        "1 Campanha"
+      document.getElementById("camp-label").textContent = "Campanha"
     }
 
     //CARD 11 - NIVEL
