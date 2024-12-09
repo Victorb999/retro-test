@@ -229,8 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   /* ===================================EVENTOS=================================*/
-
-  const shareBtn = document.querySelectorAll("#modal-button-1")
+  const shareBtn = document.getElementById("modal-button-1")
   // Adiciona evento de clique no botão de compartilhamento
   shareBtn.addEventListener("click", async () => {
     const social = document.querySelector(".slider-nav")
@@ -264,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Adiciona evento de clique no botão de download
-  const downloadBtn = document.querySelector("#modal-button-2")
+  const downloadBtn = document.getElementById("modal-button-2")
   downloadBtn.addEventListener("click", async () => {
     const social = document.querySelector(".slider-nav")
     social.style.display = "none"
