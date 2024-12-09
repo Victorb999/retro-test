@@ -5,17 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
-  const dataLayerObject = {
-    eventTag: "view-retrospectiva",
-  }
-  console.log(dataLayerObject)
-
-  try {
-    dataLayer.push(dataLayerObject)
-  } catch (error) {
-    console.error("Erro ao acessar o dataLayer:", error)
-  }
-
   // FUNÇÃO PARA DECODIFICAR OS PARÂMETROS
   const getDecodedParams = () => {
     const params = new URLSearchParams(window.location.search)
@@ -182,22 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
   populateSlides()
   rulesShow()
 
-  // Função para chamar o GTM
-  const callGTMButton = (namePanel) => {
-    const dataLayerObject = {
-      eventTag: isMobile
-        ? `click-share-retrospectiva-${namePanel}-2024`
-        : `click-download-retrospectiva-${namePanel}-2024`,
-    }
-    console.log(dataLayerObject)
-
-    try {
-      dataLayer.push(dataLayerObject)
-    } catch (error) {
-      console.error("Erro ao acessar o dataLayer:", error)
-    }
-  }
-
   // Função para converter o conteúdo do card em imagem
   const printPanel = async () => {
     const canvas = await html2canvas(document.body)
@@ -261,12 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".modal-button-1").forEach((button) => {
     // Adiciona evento de clique no botão de compartilhamento
     button.addEventListener("click", async () => {
-      const social = panel.querySelector(".slider-nav")
+      const social = document.querySelector(".slider-nav")
       social.style.display = "none"
 
       const dataUrl = await printPanel()
-      const namePanel = panelId.split("-")[1]
-      callGTMButton(namePanel)
 
       if (navigator.share && isMobile) {
         const response = await fetch(dataUrl)
