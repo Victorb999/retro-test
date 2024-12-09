@@ -226,7 +226,8 @@ body {
   line-height: 1.1;
   background: #000 fixed;
   background-size: cover;
-  font: 18px "Roboto", sans-serif;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
   color: #000000;
   margin: 0;
   p {
@@ -253,6 +254,7 @@ body {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Estilo para as imagens de fundo */
