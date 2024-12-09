@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
   if (!isMobile || !navigator.canShare) {
     document.querySelectorAll(".sharebtnbase").forEach((btn) => {
-      btn.innerHTML = '<p class="cor1">Baixar imagem</p>'
+      if (btn.id !== "see-again")
+        btn.innerHTML = '<p class="cor1">Baixar imagem</p>'
     })
   }
 
@@ -199,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", async (e) => {
       // Adiciona botão de download para dispositivos móveis
       if (!isMobile) {
-        const social = document.querySelector(".slider-nav")
+        const social = button.closest(".slider-nav")
         social.style.display = "none"
         const dataUrl = await printPanel()
         await downloadPrint(dataUrl)
@@ -231,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("modal-button-1")
   // Adiciona evento de clique no botão de compartilhamento
   shareBtn.addEventListener("click", async () => {
-    const social = document.querySelector(".slider-nav")
+    const social = button.closest(".slider-nav")
     social.style.display = "none"
     modal.style.display = "none"
 

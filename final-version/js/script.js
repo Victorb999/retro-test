@@ -122,7 +122,7 @@ $(document).ready(function () {
         buttonShare.disabled = false
         buttonShare.querySelector(".sharebtnbase").style.background = "#fff"
       }
-    }, 3000)
+    }, 4000)
   }
 
   // Função para configurar os parágrafos no estado final (opacidade 1)
