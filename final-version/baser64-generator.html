@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON to Base64</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #d1020a;
+      gap: 8px;
+    }
+    h1 {
+      color: #fff;
+    }
+    .text {
+      padding: 8px;
+      background-color: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    #base64Output {
+      width: 80vw;
+      word-break: break-all;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #000;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    #jsonInput {
+      width: 80vw;
+      border: none;
+      border-radius: 8px;
+      padding: 8px;
+    }
+    .links-gerados {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 8px;
+      width: 80%;
+      border-radius: 8px;
+    }
+  </style>
+
+  <body>
+    <h1>JSON to Base64 Converter</h1>
+    <div class="links-gerados">
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI1MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAwMSIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 1
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI3IiwidG90MjQiOiI1MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAwMiIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 2
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI0MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAwMyIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 3
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI0MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAwNCIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 4
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAwNSIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 5
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIkNPTE9SIFRSRU5EIiwgIm11dCI6Ik5hdHVyYSIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDA2IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 6
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoiRUtPUyIsImxpbmUyIjoiVE9ET0RJQSIsImxpbmUzIjogIm51bGwiLCAibXV0IjoiTmF0dXJhIiwiY3B2IjoiMTAiLCAiZWtvcyI6IjEwIiwia2FpayI6IjEwIiwicmVmIjoiMTAiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklZIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDA3IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 7
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoiTmF0dXJhIiwiY3B2IjoiMTAiLCAiZWtvcyI6IjEwIiwia2FpayI6IjEwIiwicmVmIjoiMTAiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklVIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDA4IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 8
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoiQXZvbiIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDA5IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 9
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjEwIiwgImVrb3MiOiIxMCIsImthaWsiOiIxMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAxMCIsImxldmVsIjoiUFJBVEEifQ= ="
+      >
+        link 10
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjUiLCAiZWtvcyI6IjEwIiwia2FpayI6IjEwIiwicmVmIjoiMTAiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklVIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDExIiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 11
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjEwIiwia2FpayI6IjEwIiwicmVmIjoiMTAiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklVIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDEyIiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 12
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjUiLCJrYWlrIjoiMTAiLCJyZWYiOiIxMCIsImF2biI6IjEwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJzaW0iLCJjYW1wIjoiMSIsImNvZCI6IjAwMTMiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 13
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMTAiLCJyZWYiOiIxMCIsImF2biI6IjEwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJzaW0iLCJjYW1wIjoiMSIsImNvZCI6IjAwMTQiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 14
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiNSIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAxNSIsImxldmVsIjoiUFJBVEEifQ= ="
+      >
+        link 15
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjEwIiwiYXZuIjoiMTAiLCJtb3YiOiJTVUJJVSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAxNiIsImxldmVsIjoiUFJBVEEifQ= ="
+      >
+        link 16
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjUiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklVIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDE3IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 17
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIxMCIsIm1vdiI6IlNVQklVIiwiaGdoIjoic2ltIiwiY2FtcCI6IjEiLCJjb2QiOiIwMDE4IiwibGV2ZWwiOiJQUkFUQSJ9
+"
+      >
+        link 18
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiI1IiwibW92IjoiU1VCSVUiLCJoZ2giOiJzaW0iLCJjYW1wIjoiMSIsImNvZCI6IjAwMTkiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 19
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJzaW0iLCJjYW1wIjoiMSIsImNvZCI6IjAwMjAiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 20
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiTUFOVEVWRSIsImhnaCI6InNpbSIsImNhbXAiOiIxIiwiY29kIjoiMDAyMSIsImxldmVsIjoiUFJBVEEifQ=="
+      >
+        link 21
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJuYW8iLCJjYW1wIjoiMSIsImNvZCI6IjAwMjIiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 22
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJzaW0iLCJjYW1wIjoiMCIsImNvZCI6IjAwMjMiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 23
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJuYW8iLCJjYW1wIjoiMCIsImNvZCI6IjAwMjQiLCJsZXZlbCI6IlBSQVRBIn0="
+      >
+        link 24
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiTHV5ZGUiLCJjeWMiOiI4IiwidG90MjQiOiI2MCIsImxpbmUxIjoibnVsbCIsImxpbmUyIjoibnVsbCIsImxpbmUzIjogIm51bGwiLCAibXV0IjoibnVsbCIsImNwdiI6IjAiLCAiZWtvcyI6IjAiLCJrYWlrIjoiMCIsInJlZiI6IjAiLCJhdm4iOiIwIiwibW92IjoiU1VCSVUiLCJoZ2giOiJuYW8iLCJjYW1wIjoiMCIsImNvZCI6IjAwMjUiLCJsZXZlbCI6Ik5VTEwifQ=="
+      >
+        link 25
+      </a>
+      <a
+        href="https://retro-test.vercel.app/final-version/index.html?dados=eyJuYW1lIjoiRWxsZW4iLCJjeWMiOiIxNiIsInRvdDI0IjoiNzk5IiwibGluZTEiOiJUT0RPRElBIiwibGluZTIiOiJFS09TIiwibGluZTMiOiAiTUFNw4NFIEUgQkVCw4oiLCAibXV0IjoiTlVMTCIsImNwdiI6IjQiLCAiZWtvcyI6IjgzIiwia2FpayI6IjE3IiwicmVmIjoiNDIiLCJhdm4iOiIwIiwibW92IjoiTUFOVEVWRSIsImhnaCI6Im5hbyIsImNhbXAiOiIwIiwiY29kIjoiMjM3MjAxMjI0IiwibGV2ZWwiOiJPVVJPIn0="
+      >
+        link 26
+      </a>
+    </div>
+
+    <div class="text">
+      <textarea id="jsonInput" cols="80" rows="20" placeholder=""></textarea>
+      <p id="base64Output"></p>
+    </div>
+
+    <script>
+      const jsonObject = {
+        name: "Maria",
+        cyc: 8,
+        tot24: 42,
+        line1: "COLOR TREND",
+        line2: "HOMEM",
+        line3: "TODODIA",
+        mut: "Natura",
+        cpv: 123,
+        ekos: 1,
+        kaik: 20,
+        ref: 0,
+        avn: 76,
+        mov: "MANTEVE",
+        hgh: "sim",
+        camp: 2,
+        cod: "111111",
+      }
+      document.querySelector("#jsonInput").textContent = JSON.stringify(
+        jsonObject,
+        null,
+        2
+      )
+
+      document
+        .getElementById("jsonInput")
+        .addEventListener("input", function () {
+          const inputText = this.value
+          try {
+            const parsedJson = JSON.parse(inputText)
+            const jsonString = JSON.stringify(parsedJson)
+            const base64String = btoa(jsonString)
+            document.getElementById("base64Output").textContent = base64String
+            link.href = `index.html?dados=${base64String}`
+          } catch (e) {
+            document.getElementById("base64Output").textContent = "Invalid JSON"
+            link.href = "#"
+          }
+        })
+
+      const jsonString = JSON.stringify(jsonObject)
+      const base64String = btoa(jsonString)
+
+      document.getElementById("base64Output").textContent = base64String
+      const link = document.createElement("a")
+      link.href = `index.html?dados=${base64String}`
+      link.textContent = "Go to Card"
+      link.style.marginTop = "20px"
+      link.style.display = "block"
+      link.target = "_blank"
+      document.body.appendChild(link)
+    </script>
+  </body>
+</html>

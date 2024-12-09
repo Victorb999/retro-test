@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Retrospectiva Natura</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+  </head>
+  <body>
+    <!-- Container para os fundos -->
+    <div class="bg-container">
+      <img
+        src="./img/bg1.webp"
+        alt="bg1"
+        class="imgbg showbg"
+        id="img-Abertura"
+      />
+      <img src="./img/bg2.webp" alt="bg2" class="imgbg" id="img-Produtos" />
+      <img src="./img/bg3.webp" alt="bg3" class="imgbg" id="img-Linhas" />
+      <img src="./img/bg4.webp" alt="bg4" class="imgbg" id="img-Mutualidade" />
+      <img src="./img/bg5.webp" alt="bg5" class="imgbg" id="img-CPV" />
+      <img src="./img/bg6.webp" alt="bg6" class="imgbg" id="img-Ekos" />
+      <img src="./img/bg7.webp" alt="bg7" class="imgbg" id="img-Kaiak" />
+      <img src="./img/bg8.webp" alt="bg8" class="imgbg" id="img-Refil" />
+      <img src="./img/bg9.webp" alt="bg9" class="imgbg" id="img-Avon" />
+      <img
+        src="./img/bg10.webp"
+        alt="bg10"
+        class="imgbg"
+        id="img-Reconhecimento"
+      />
+      <img src="./img/bg11.webp" alt="bg11" class="imgbg" id="img-Nivel" />
+      <img
+        src="./img/bg12.webp"
+        alt="bg12"
+        class="imgbg"
+        id="img-Encerramento"
+      />
+
+      <!-- Container para os slides -->
+      <div class="slide-container">
+        <div class="wrapper" id="card-Abertura">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img
+                class="bannerinicial"
+                src="./img/retro_logo.webp"
+                alt="Natura Avon"
+              />
+            </div>
+
+            <div
+              class="natura-card__level natura-card__level--slide1"
+              style="padding: 0px 0px 20px"
+            >
+              <p class="font34 destaque" style="margin-top: -10px" id="name">
+                <span><strong>[name],</strong></span>
+              </p>
+            </div>
+            <div>
+              <p class="font18 fontw400 m0" data-index="1">
+                2024 está quase acabando e
+                <strong
+                  >chegou <br />a hora de celebrar suas conquistas!<br /><br
+                /></strong>
+              </p>
+              <p class="font16 fontw400" data-index="2">
+                Vamos juntos relembrar os fatos <br />mais marcantes do seu
+                ano*?
+              </p>
+            </div>
+            <div>
+              <p class="pv" data-index="3">
+                <span class="font12 fontw400"
+                  >* Considerando o período do ciclo 01 ao 16/2024.</span
+                >
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <div style="width: 53px"></div>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Produtos">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_estoque.webp" alt="Estoque" />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                flex-direction: column;
+                justify-content: space-around;
+              "
+            >
+              <div
+                class="natura-card__unit-description"
+                id="section-Produtos-cyc"
+              >
+                <p class="font18" style="font-weight: 400" data-index="1">
+                  Neste ano, você <br />se <strong>manteve ativa em</strong>
+                </p>
+                <p class="font34 cor1" data-index="2" data-delay="2000">
+                  <strong id="cyc">[cyc] ciclos!</strong>
+                  <strong>ciclos!</strong>
+                </p>
+              </div>
+              <div
+                style="
+                  margin: 0px 50px 15px;
+                  padding: 10px 20px;
+                  border: dotted 2px #ede8e5;
+                  border-radius: 10px;
+                "
+                id="section-Produtos-tot24"
+              >
+                <p class="font18 fontw400 m0" data-index="3" data-delay="2000">
+                  Ao todo, em 2024 você comprou
+                </p>
+                <p class="font34" data-index="4" data-delay="2000">
+                  <strong class="cor1"
+                    ><span id="tot24">[tot24]</span> produtos</strong
+                  >
+                </p>
+              </div>
+
+              <div style="position: relative">
+                <div class="staricon" style="top: 20%; left: 5%">
+                  <img src="./img/star.webp" />
+                </div>
+                <div
+                  class="staricon"
+                  style="top: -25%; left: 74%; transform: scale(0.6)"
+                >
+                  <img src="./img/star.webp" />
+                </div>
+                <div
+                  class="staricon"
+                  style="top: 65%; left: 80%; transform: scale(0.7)"
+                >
+                  <img src="./img/star.webp" />
+                </div>
+                <p class="font25 fontw500" data-index="5" data-delay="2000">
+                  U-A-U!!
+                </p>
+                <p class="font18 fontw400" data-index="6">
+                  Parece que seu estoque ficou<br />bem recheado neste ano,
+                  hein?
+                </p>
+              </div>
+            </div>
+
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Linhas">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_favoritos.webp" alt="Favoritos" />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                flex: auto;
+              "
+            >
+              <p class="fontw400">
+                Será que você sabe quais foram<br /><strong class="font25"
+                  >seus favoritos do ano?</strong
+                >
+              </p>
+              <p class="font16 pv">
+                Aqui está o que mais marcou <br />presença nos seus pedidos:
+              </p>
+              <div id="section-Linhas">
+                <p
+                  class="font32 txtstart pv destaque"
+                  id="section-Linhas-line1"
+                  style="padding: 0px 60px"
+                >
+                  <strong>1# <span id="line1">[line1]</span></strong>
+                </p>
+                <p
+                  class="font32 txtstart pv destaque"
+                  id="section-Linhas-line2"
+                  style="padding: 0px 60px"
+                >
+                  <strong>2# <span id="line2">[line2]</span></strong>
+                </p>
+                <p
+                  class="font32 txtstart pv destaque"
+                  id="section-Linhas-line3"
+                  style="padding: 0px 60px"
+                >
+                  <strong>3# <span id="line3">[line3]</span></strong>
+                </p>
+              </div>
+            </div>
+
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Mutualidade">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_natura_avon.webp" alt="Natura Avon" />
+            </div>
+            <div class="staricon" style="top: 86%; left: 7%">
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 65px; left: 58px; transform: scale(0.7)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 63%; left: 293px; transform: scale(0.8)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <p class="fontw400">
+              Em 2024,<br /><strong class="font25">você passou a vender</strong
+              ><br />
+              também produtos
+            </p>
+            <p class="fontw800 font34 pv"><span id="mut">[mut]</span></p>
+            <p class="fontw400">
+              <strong class="font25">fortalecendo</strong> ainda mais
+              <br /><strong class="font25">seu negócio.</strong>
+            </p>
+
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font42 destaque"><strong>Parabéns!</strong></p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-CPV">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_crerver.webp" alt="Crer para Ver" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 212px; left: 351px; transform: scale(0.6)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 86px; left: 58px; transform: scale(0.9)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 57px; left: 70%; transform: scale(0.7)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <p class="fontw400 font25 m0" data-index="1">
+              <strong>Você vendeu</strong>
+            </p>
+            <p class="cor2 font42 m0" data-index="2" data-delay="2000">
+              <strong id="section-CPV">
+                <span id="cpv">[cpv]</span> produtos
+              </strong>
+            </p>
+            <p
+              class="fontw400 font21 m0"
+              style="padding-bottom: 20px"
+              data-index="3"
+              data-delay="300"
+            >
+              <strong>Natura Crer Para Ver</strong> em 2024!
+            </p>
+
+            <p class="fontw400" data-index="4" data-delay="2000">
+              E contribuiu para que mais de <br /><strong class="cor2"
+                ><span class="font25">320 mil</span></strong
+              >
+              <span class="font21 cor2">Consultoras de Beleza</span><br />
+              e
+              <strong class="cor2"
+                ><span class="font25"> 4 milhões</span></strong
+              >
+              <span class="cor2">de alunos</span><br />
+              fossem beneficiados pela Educação.
+            </p>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font21" data-index="5">
+                É motivo de sobra para se <br />orgulhar, né?
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Ekos">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_ekos.webp" alt="Ekos" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 0px; left: 48px; transform: scale(0.6)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 96px; left: 46px; transform: scale(0.9)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 39px; left: 78%; transform: scale(0.9)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <p class="fontw400 font25 m0" data-index="1">
+              <strong>Você vendeu</strong>
+            </p>
+            <p class="cor3 font42 m0" data-index="2" data-delay="2000">
+              <strong id="section-Ekos">
+                <span id="ekos">[ekos]</span> produtos
+              </strong>
+            </p>
+            <p
+              class="fontw400 font21 m0"
+              style="padding-bottom: 20px"
+              data-index="3"
+              data-delay="300"
+            >
+              <strong>Ekos</strong> em 2024!
+            </p>
+            <p class="fontw400 mv" data-index="4" data-delay="2000">
+              E colaborou para a proteção <br />e/ou regeneração de
+              <br /><strong class="cor3"
+                ><span class="font25"
+                  >2 milhões de hectares <br /></span></strong
+              ><span class="cor3">da </span
+              ><strong class="cor3"
+                ><span class="font25">Floresta Amazônica.</span></strong
+              >
+            </p>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font21" data-index="5">
+                Obrigada por assumir <br />esse compromisso pela <br />Amazônia
+                com a gente!
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Kaiak">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_kaiak.webp" alt="Kaiaks" />
+            </div>
+            <div
+              class="staricon"
+              style="top: -2%; left: 70%; transform: scale(0.6)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 3%; left: 15%; transform: scale(0.9)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 70px; left: 283px; transform: scale(0.8)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <p class="fontw400 font25 m0" data-index="1">
+              <strong>Você vendeu</strong>
+            </p>
+            <p class="cor4 font42 m0" data-index="2" data-delay="2000">
+              <strong id="section-Kaiak">
+                <span id="kaik">[kaik]</span> produtos
+              </strong>
+            </p>
+            <p
+              class="fontw400 font21 m0"
+              style="padding-bottom: 20px"
+              data-index="3"
+              data-delay="300"
+            >
+              <strong>Kaiak</strong> em 2024!
+            </p>
+            <p class="fontw400" data-index="4" data-delay="2000">
+              E cooperou para a reciclagem <br />de mais de
+              <strong class="cor4"
+                ><span class="font25">3 mil toneladas</span><br /> </strong
+              ><span class="cor4">de plástico</span> e mais de<br /><strong
+                class="cor4"
+                ><span class="font25">1,5 mil toneladas</span></strong
+              >
+              <span class="cor4">de vidro</span>.
+            </p>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font21" data-index="5">
+                O meio ambiente agradece <br />o seu empenho!
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Refil">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_refil.webp" alt="Refil" />
+            </div>
+            <p class="fontw400 font25 m0" data-index="1">
+              <strong>Você vendeu</strong>
+            </p>
+            <p class="cor5 font42 m0" data-index="2" data-delay="2000">
+              <strong id="section-Refil">
+                <span id="ref">[ref]</span> produtos
+              </strong>
+            </p>
+            <p
+              class="fontw400 font21 m0"
+              style="padding-bottom: 20px"
+              data-index="3"
+              data-delay="300"
+            >
+              em <strong>Refil</strong> em 2024!
+            </p>
+            <p class="fontw400" data-index="4" data-delay="2000">
+              E contribuiu para evitar o <br />descarte de mais de <br /><strong
+                class="cor5"
+                ><span class="font25">1 mil toneladas</span></strong
+              ><span class="cor5">
+                de resíduos <br />
+                em nosso planeta.</span
+              >
+            </p>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font21" data-index="5">
+                Você levou o lema <br />Mais Beleza, Menos Lixo a sério!
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Avon">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_cancer.webp" alt="Câncer de Mama" />
+            </div>
+            <p class="fontw400 font25 m0" data-index="1">
+              <strong>Você vendeu</strong>
+            </p>
+            <p class="cor6 font42 m0" data-index="2" data-delay="2000">
+              <strong id="section-Avon">
+                <span id="avn">[avn]</span> produtos
+              </strong>
+            </p>
+            <p
+              class="fontw400 font21 m0"
+              style="padding-bottom: 20px"
+              data-index="3"
+              data-delay="300"
+            >
+              <strong>Avon</strong> em 2024!
+            </p>
+            <p class="fontw400" data-index="4" data-delay="2000">
+              E ajudou para que mais de <br /><strong class="cor6"
+                ><span class="font25">55 mil mulheres</span><br /></strong
+              ><span class="cor6"> pudessem realizar seus exames.</span>
+            </p>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                justify-content: center;
+                align-items: end;
+              "
+            >
+              <p class="font21" data-index="5">
+                Obrigada por ajudar a transformar <br />a vida de outras
+                mulheres!
+              </p>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Reconhecimento">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_prot.webp" alt="Protagonista" />
+            </div>
+            <div
+              class="staricon"
+              style="top: -1%; left: 74%; transform: scale(1)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 67px; left: 56px; transform: scale(0.7)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 64%; left: 80%; transform: scale(0.7)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                flex-wrap: nowrap;
+                align-content: center;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  flex: auto;
+                  flex-direction: column;
+                  justify-content: space-between;
+                "
+              >
+                <div>
+                  <p class="fontw400 font21" data-index="1">
+                    Você foi <strong class="font25">protagonista</strong> da
+                    <br />sua história e toda a sua dedicação <br /><strong
+                      class="font25"
+                      >merece reconhecimento!</strong
+                    >
+                  </p>
+                </div>
+                <div id="section-Reconhecimento-hgh">
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="2"
+                    data-delay="2000"
+                  >
+                    Você esteve entre os
+                  </p>
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="3"
+                  >
+                    <strong class="font42"> Destaques 2024!</strong>
+                  </p>
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="4"
+                  >
+                    <span class="font18">#NaturaeAvonReconhecem</span>
+                  </p>
+                </div>
+                <div id="section-Reconhecimento-camp">
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="5"
+                    data-delay="2000"
+                  >
+                    Que arraso! Você ganhou
+                  </p>
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="6"
+                  >
+                    <strong class="font42">
+                      <span id="camp">[camp]</span>
+                      <span id="camp-label">Campanhas</span>
+                    </strong>
+                  </p>
+                  <p
+                    class="fontw400 m0"
+                    style="line-height: 1.1"
+                    data-index="7"
+                  >
+                    <strong>em 2024.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Nivel">
+          <div class="natura-card slide1">
+            <div class="natura-card__image natura-card__image--slide1">
+              <img src="./img/circ_vendas.webp" alt="Nível" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 421px; left: 48px; transform: scale(0.8)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 77px; left: 52px; transform: scale(1)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              class="staricon"
+              style="top: 294px; left: 80%; transform: scale(0.7)"
+            >
+              <img src="./img/star.webp" />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                flex-wrap: nowrap;
+                align-content: center;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+              "
+            >
+              <div>
+                <p class="fontw400 font21" data-index="1">
+                  Com as vendas em alta, <br />você se dedicou como nunca e
+                </p>
+                <p
+                  class="fontw400"
+                  style="line-height: 1"
+                  id="section-Nivel"
+                  data-index="2"
+                  data-delay="2000"
+                >
+                  <strong class="font42">subiu de nível </strong>
+                </p>
+                <p class="fontw500 font25" data-index="3" data-delay="300">
+                  no Plano de Crescimento!
+                </p>
+              </div>
+              <div style="line-height: 1">
+                <p
+                  class="fontw500 font25"
+                  style="line-height: 1"
+                  data-index="4"
+                  data-delay="2000"
+                >
+                  <strong>Parabéns!</strong>
+                </p>
+                <p class="fontw400 font21" data-index="5" data-delay="2000">
+                  Quanto mais você <br />cresce na Consultoria, <br />maiores
+                  são os benefícios <br />para você.
+                </p>
+              </div>
+            </div>
+
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon_w.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button class="slick-prev_custom" aria-label="Prev" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="16"
+                  height="24"
+                  viewBox="0 0 16 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2412 2.24316L4.23769 12.2385L13.2412 22.251"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button class="share-button" aria-label="Share" type="button">
+              <div class="sharebtnbase"><p class="cor1">Compartilhe</p></div>
+            </button>
+            <button class="slick-next_custom" aria-label="Next" type="button">
+              <div class="roundbtn">
+                <svg
+                  width="15"
+                  height="24"
+                  viewBox="0 0 15 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.09766 22.2512L11.1012 12.2559L2.09766 2.24341"
+                    stroke="currentColor"
+                    stroke-width="5.00195"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrapper" id="card-Encerramento">
+          <div class="natura-card slide1">
+            <div
+              style="
+                display: flex;
+                flex: auto;
+                flex-wrap: nowrap;
+                align-content: center;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: column;
+              "
+            >
+              <div
+                class="natura-card__level natura-card__level--slide1"
+                style="padding: 0px 0px 20px"
+              ></div>
+              <div class="staricon" style="top: 23%; left: 17%">
+                <img src="./img/star2.webp" />
+              </div>
+              <div class="staricon" style="top: 253px; left: 78%">
+                <img src="./img/star3.webp" />
+              </div>
+              <div class="staricon" style="top: 83%; left: 55px">
+                <img src="./img/star4.webp" />
+              </div>
+              <div>
+                <p class="font42 cor1 destaque" id="name-2">
+                  <strong>[name],</strong>
+                </p>
+                <p class="font26 fontw400">
+                  <strong>você brilhou muito em 2024!</strong><br /><strong
+                    class="cor1"
+                    >Parabéns!</strong
+                  >
+                </p>
+              </div>
+              <div>
+                <p class="font20 fontw400">
+                  Compartilhe seu <br /><strong
+                    >sucesso nas redes sociais</strong
+                  >
+                  e <br />comemore o encerramento <br />de
+                  <strong>mais um ano incrível!</strong>
+                </p>
+              </div>
+            </div>
+            <div class="natura-card__logo natura-card__image--slide1">
+              <div>
+                <img src="./img/consultoria_icon.webp" alt="Consultoria" />
+              </div>
+            </div>
+          </div>
+          <!-- Controles de navegação -->
+          <div class="slider-nav">
+            <button
+              class="repeat-button"
+              aria-label="Repeat"
+              type="button"
+              onClick="window.location.reload();"
+            >
+              <div
+                class="sharebtnbase"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <img
+                  src="./img/repeat_icon.svg"
+                  style="width: 18px; margin-right: 7px"
+                />
+                <p style="width: 105px; margin: 0">VER DE NOVO</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-buttons" id="shareBtn">
+          <button id="modal-button-1">
+            <img src="./img/share_icon.png" />Compartilhar
+          </button>
+          <button id="modal-button-2">
+            <img src="./img/down_icon.png" />Baixar
+          </button>
+          <span class="close">&times; Fechar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/retro.js"></script>
+  </body>
+</html>

@@ -1,0 +1,818 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800&display=swap');
+
+.m0 {
+  margin: 0!important;
+}
+
+.txtstart {
+  text-align: start;
+}
+
+.pv {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.smfont {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px 20px;
+}
+
+.font12 {
+  font-size: 10px;
+}
+
+.font14 {
+  font-size: 12px;
+}
+
+.font15 {
+  font-size: 13px;
+}
+
+.font16 {
+  font-size: 14px;
+}
+
+.font18 {
+  font-size: 16px;
+}
+
+.font20 {
+  font-size: 18px;
+}
+
+.font21 {
+  font-size: 18px;
+}
+
+.font25 {
+  font-size: 23px;
+}
+
+.font26 {
+  font-size: 24px;
+}
+
+.font30 {
+  font-size: 28px;
+}
+
+.font32 {
+  font-size: 30px;
+}
+
+.font34 {
+  font-size: 32px;
+}
+
+.font42 {
+  font-size: 40px;
+}
+
+
+.font44 {
+  font-size: 42px;
+}
+
+.font48 {
+  font-size: 46px;
+}
+
+.font51 {
+  font-size: 49px;
+}
+
+/* Media queries para dispositivos abaixo de 380px */
+@media (max-width: 430px) {
+  .font12 {
+    font-size: 10px;
+  }
+
+  .font14 {
+    font-size: 12px;
+  }
+
+  .font15 {
+    font-size: 13px;
+  }
+
+  .font16 {
+    font-size: 14px;
+  }
+
+  .font18 {
+    font-size: 16px;
+  }
+
+  .font20 {
+    font-size: 18px;
+  }
+
+  .font21 {
+    font-size: 19px;
+  }
+
+  .font25 {
+    font-size: 22px;
+  }
+
+  .font26 {
+    font-size: 23px;
+  }
+
+  .font30 {
+    font-size: 26px;
+  }
+
+  .font32 {
+    font-size: 28px;
+  }
+
+  .font34 {
+    font-size: 30px;
+  }
+
+  .font42 {
+    font-size: 36px;
+  }
+
+  .font44 {
+    font-size: 38px;
+  }
+
+  .font48 {
+    font-size: 42px;
+  }
+
+  .font51 {
+    font-size: 46px;
+  }
+}
+
+
+/* Font Weights */
+
+.fontw350 {
+  font-weight: 350;
+}
+
+
+.fontw400 {
+  font-weight: 400;
+}
+
+.fontw500 {
+  font-weight: 500;
+}
+
+.fontw800 {
+  font-weight: 800;
+}
+
+
+$border-radius-size: 40px;
+$grey1: #231F20;
+$slide1: #D1020A;
+$slide2: #EC4C10;
+$slide3: #A8A875;
+$slide4: #94D4EB;
+$slide5: #B92B02;
+$slide6: #F7BF10;
+
+.bgwhite {
+  background-color: #ffffff;
+}
+
+.corblack {
+  color: #000000;
+}
+
+.grey1 {
+  color: $grey1;
+}
+
+.cor1 {
+  color: $slide1;
+}
+
+.cor2 {
+  color: $slide2;
+}
+
+.cor3 {
+  color: $slide3;
+}
+
+.cor4 {
+  color: $slide4;
+}
+
+.cor5 {
+  color: $slide5;
+}
+
+.cor6 {
+  color: $slide6;
+} 
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.1;
+  background: #000 fixed;
+  background-size: cover;
+  font: 18px "Roboto", sans-serif;
+  color: #000000;
+  margin: 0;
+  p {
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+.colorline {
+  padding: 10px 20px;
+  hr {
+    border-width: 0;
+    height: 2px;
+  }
+}
+
+/* Container para as imagens de fundo */
+.bg-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Estilo para as imagens de fundo */
+.bg-container .imgbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0; /* Todas as imagens começam invisíveis */
+  transition: opacity 1s ease-in-out; /* Transição suave de opacidade */
+  z-index: -1;
+}
+
+.slide-container {
+  margin-top: -20px!important;
+}
+
+/* Imagem visível */
+.showbg {
+  opacity: 1!important;
+  z-index: -1!important; /* Fica atrás da imagem atual do slide */
+  transition: none; /* Nenhuma transição na classe showbg */
+}
+
+/* Div para os botões de navegação abaixo do slider */
+.slider-nav {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+.slick-prev_custom, .slick-next_custom { 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} 
+
+.slide-container {
+  position: relative; /* Necessário para posicionamento absoluto dentro do container */
+  margin: auto;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  text-align: center;
+}
+
+.sharebtnbase {
+  background-color: #ffffff;
+  border-radius: 16px;
+  height: 41px;
+  width: 206px;
+  display: table-cell;
+  vertical-align: middle;
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    margin: auto;
+  }
+}
+
+.share-button { 
+  background-color: transparent;
+  border: none; 
+  cursor: pointer;
+  max-width: 206px;
+} 
+.repeat-button { 
+  background-color: transparent;
+  border: none; 
+  cursor: pointer;
+  max-width: 307x;
+} 
+
+.roundbtn{
+  background-color: #ffffff;
+  padding: 8px 8px 0px 8px;
+  border-radius: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+
+ /* Adicionando o overlay que vai fazer o fade */
+ #bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Coloca o overlay atrás do conteúdo */
+  transition: opacity 1s ease-in-out;
+  opacity: 0; /* Inicialmente invisível */
+  background-size: cover;
+  background-position: center;
+  
+}
+
+/* Transições para as imagens dentro do slider */
+.natura-card__image img {
+  max-width: 114px;
+  display: block;
+  opacity: 0; /* Inicialmente invisível */
+  transform: translateY(10px);
+  margin: auto;
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.455, 0.03, 0.515, 0.955); /* Transição suave */
+  @media (max-width: 430px) {
+    max-width: 30%;
+  }
+}
+.natura-card__image img.show {
+  opacity: 1;
+  transform: translateY(-20px); /* Torna a imagem visível */
+}
+
+
+/* Personalização de cada card */
+
+#card-Abertura {
+  .sharebtnbase  {
+    p {
+      color: #D11315!important;
+    }
+  }
+  .roundbtn{
+    color: #D11315;
+  }
+}
+
+#card-Produtos {
+  .sharebtnbase  {
+    p {
+      color: #F7BF10!important;
+    }
+  }
+  .roundbtn{
+    color: #F7BF10;
+  }
+}
+
+#card-Linhas {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #D11315!important;
+    }
+  }
+  .roundbtn{
+    color: #D11315;
+  }
+}
+
+#card-Mutualidade {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #D11315!important;
+    }
+  }
+  .roundbtn{
+    color: #D11315;
+  }
+
+}
+
+#card-CPV {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #00323E!important;
+    }
+  }
+  .roundbtn{
+    color: #00323E;
+  }
+}
+
+#card-Ekos {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #35652D!important;
+    }
+  }
+  .roundbtn{
+    color: #35652D;
+  }
+}
+
+#card-Kaiak {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #0D5391!important;
+    }
+  }
+  .roundbtn{
+    color: #0D5391;
+  }
+}
+
+#card-Refil {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #FE5D02!important;
+    }
+  }
+  .roundbtn{
+    color: #FE5D02;
+  }
+}
+
+#card-Avon {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #8D1D73!important;
+    }
+  }
+  .roundbtn{
+    color: #8D1D73;
+  }
+}
+
+#card-Reconhecimento {
+  color: #ffffff;
+  .sharebtnbase  {
+    p {
+      color: #D11315!important;
+    }
+  }
+  .roundbtn{
+    color: #D11315;
+  }
+}
+
+#card-Nivel {
+  color: #ffffff;
+  p {
+    margin-bottom: 0;
+  }
+  .sharebtnbase  {
+    p {
+      color: #E5004B!important;
+    }
+  }
+  .roundbtn{
+    color: #E5004B;
+  }
+}
+ 
+
+.wrapper {
+  padding: 10px 0px;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.wrapper p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+ 
+
+.natura-card p   {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.natura-card p.animate  {
+  opacity: 1;
+  animation: animateParagraph 1s ease-in-out;
+}
+
+.natura-card p.destaque  {
+  display: block;
+}
+
+.natura-card__image img.primeiraimg {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+/* Animação elástica */
+@keyframes animateParagraph {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+ 
+
+
+
+
+.natura-card {
+  background: transparent;
+  width: 100%;
+  max-width: 430px;
+  min-height: 510px;
+  max-height: 510px;
+  padding-top: 5%;
+  @media (max-width: 430px) {
+    min-height: 500px;
+    max-height: 500px;
+  }
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+  border-radius: $border-radius-size + 5;
+  position: relative;
+  text-align: center;
+  // box-shadow: 0px 8px 10px 0px rgba($color: #000000, $alpha: .3);
+  z-index: 9999;
+}
+
+.natura-card__image {
+  position: relative;
+  height: auto;
+  min-height: 120px;
+  border-top-left-radius: $border-radius-size;
+  border-top-right-radius: $border-radius-size;
+}
+
+ 
+.natura-card__level {
+  color: #000; 
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;  
+  p {
+    margin: 0;
+  }
+}
+
+.natura-card__level--slide1 {
+  color: $slide1;
+  line-height: 1.2;
+}
+.natura-card__level--slide2 {
+  color: $slide2;
+}
+
+.natura-card__level--slide3 {
+  color: $slide3;
+}
+
+.natura-card__level--slide4 {
+  color: $slide4;
+}
+
+.natura-card__level--slide5 {
+  color: $slide5;
+}
+
+.natura-card__level--slide6{
+  color: $slide6;
+}
+
+.natura-card__level--slide9{
+  color: #000;
+  padding-top: 30px;
+}
+ 
+.natura-card__unit-name {
+  position: relative; 
+  line-height: .8;
+  color: black;
+  font-weight: 300;
+  margin-bottom: 5px;
+  margin: auto;
+  text-align: start;
+  padding: 0px 20px;
+}
+
+.natura-card__unit-description {
+  line-height: 1.2;
+  color: #000;
+  font-weight: 300;
+  padding: 0px 10px;
+  p {
+    margin: 0;
+  }
+}
+
+.natura-card__unit-stats--slide1 {
+  background: $slide1;
+  
+  .one-third {
+     border-right: 1px solid #BD7C2F;
+  }
+}
+
+.natura-card__unit-stats--slide2 {
+  background: $slide2;
+  
+  .one-third {
+     border-right: 1px solid #D04976;
+  }
+}
+
+.natura-card__unit-stats--slide3 {
+  background: $slide3;
+  
+  .one-third {
+     border-right: 1px solid darken($slide3, 8%);
+  }
+}
+
+.natura-card__unit-stats--slide4 {
+  background: $slide4;
+  
+  .one-third {
+     border-right: 1px solid darken($slide4, 6%);
+  }
+}
+
+.natura-card__unit-stats--slide5 {
+  background: $slide5;
+  
+  .one-third {
+     border-right: 1px solid darken($slide5, 6%);
+  }
+}
+
+
+.natura-card__unit-stats {
+  
+  color: white;
+  font-weight: 700;
+  border-bottom-left-radius: $border-radius-size;
+  border-bottom-right-radius: $border-radius-size;
+}
+
+.natura-card__logo {
+  padding: 0px 20px 10px;   
+  display: flex;
+  flex: auto;
+  align-items: flex-end;
+  justify-content: center;
+  max-height: 80px;
+  img {
+    margin: auto;
+    max-width: 156px;
+    @media (max-width: 430px) {
+      max-width: 70%;
+    }
+  }
+}
+
+.bannerinicial{
+  opacity: 0;
+  width: 100%!important;
+  max-width: 320px!important;
+  @media (max-width: 430px) {
+    max-width: 80%!important;
+    padding-top: 20px;
+  }
+  transition-delay: 1500ms!important;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+button :hover {
+  filter: brightness(1.75);
+}
+
+/* Define keyframes */
+@keyframes starAnimation {
+  0% {
+    transform: scale(0.5) translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(0);
+    opacity: 0;
+  }
+}
+
+/* Estilize os elementos com a classe staricon para que a animação seja aplicada */
+.staricon {
+  position: absolute;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+ 
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 250px;
+  .close {
+    color: #ffffff;
+    cursor: pointer;
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+  img {
+    max-width: 15px;
+    margin-right: 5px;
+  }
+}
+
+.modal-buttons button {
+  width: 100%;
+  display: block;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+}
+
