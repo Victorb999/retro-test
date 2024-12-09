@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const decoded = atob(base64Data)
-      const utf8Decoded = decodeURIComponent(encodeURIComponent(decoded)) // Corrige caracteres UTF-8
+      const utf8Decoded = decodeURIComponent(escape(decoded))
       return JSON.parse(utf8Decoded)
     } catch (error) {
       console.error("Erro ao decodificar os parâmetros:", error)
