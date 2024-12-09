@@ -1,0 +1,503 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800&display=swap");
+.pv {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.smfont {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px 20px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font15 {
+  font-size: 15px;
+}
+
+.font16 {
+  font-size: 16px;
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+.font25 {
+  font-size: 25px;
+}
+
+.font26 {
+  font-size: 26px;
+}
+
+.font30 {
+  font-size: 30px;
+}
+
+.font32 {
+  font-size: 32px;
+}
+
+.font34 {
+  font-size: 34px;
+}
+
+.font44 {
+  font-size: 44px;
+}
+
+.font48 {
+  font-size: 48px;
+}
+
+.font51 {
+  font-size: 51px;
+}
+
+.fontw350 {
+  font-weight: 350;
+}
+
+.fontw400 {
+  font-weight: 400;
+}
+
+.fontw500 {
+  font-weight: 500;
+}
+
+.fontw800 {
+  font-weight: 800;
+}
+
+.bgwhite {
+  background-color: #ffffff;
+}
+
+.corblack {
+  color: #000000;
+}
+
+.grey1 {
+  color: #231F20;
+}
+
+.cor1 {
+  color: #D1020A;
+}
+
+.cor2 {
+  color: #EC4C10;
+}
+
+.cor3 {
+  color: #A8A875;
+}
+
+.cor4 {
+  color: #94D4EB;
+}
+
+.cor5 {
+  color: #B92B02;
+}
+
+.cor6 {
+  color: #F7BF10;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.1;
+  background: #000 fixed;
+  background-size: cover;
+  font: 18px "Roboto", sans-serif;
+  color: #000000;
+  margin: 0;
+}
+body p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.colorline {
+  padding: 10px 20px;
+}
+.colorline hr {
+  border-width: 0;
+  height: 2px;
+}
+
+/* Container para as imagens de fundo */
+.bg-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Estilo para as imagens de fundo */
+.bg-container .imgbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  opacity: 0; /* Todas as imagens começam invisíveis */
+  transition: opacity 1s ease-in-out; /* Transição suave de opacidade */
+  z-index: -1;
+}
+
+/* Imagem visível */
+.showbg {
+  opacity: 1 !important;
+  z-index: -1 !important; /* Fica atrás da imagem atual do slide */
+  transition: none; /* Nenhuma transição na classe showbg */
+}
+
+/* Div para os botões de navegação abaixo do slider */
+.slider-nav {
+  margin-top: 20px;
+  position: relative;
+}
+
+.slick-prev_custom, .slick-next_custom {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.slide-container {
+  position: relative; /* Necessário para posicionamento absoluto dentro do container */
+  margin: auto;
+  width: 450px;
+  height: auto;
+  text-align: center;
+}
+
+.sharebtnbase {
+  background-color: #ffffff;
+  border-radius: 16px;
+  height: 41px;
+  width: 206px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.sharebtnbase p {
+  font-family: "Ofelia Display";
+  font-size: 15px;
+  font-weight: 500;
+  margin: auto;
+}
+
+.pedidobtnbase {
+  background-color: #ffffff;
+  border-radius: 16px;
+  height: 41px;
+  width: 307px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.pedidobtnbase p {
+  font-family: "Ofelia Display";
+  font-size: 18px;
+  font-weight: 500;
+  margin: auto;
+}
+
+.share-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  max-width: 206px;
+}
+
+.pedido-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  max-width: 307x;
+}
+
+/* Adicionando o overlay que vai fazer o fade */
+#bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Coloca o overlay atrás do conteúdo */
+  transition: opacity 1s ease-in-out;
+  opacity: 0; /* Inicialmente invisível */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Transições para as imagens dentro do slider */
+.natura-card__image img {
+  max-width: 134px;
+  display: block;
+  opacity: 0; /* Inicialmente invisível */
+  transform: translateY(10px);
+  margin: auto;
+  transition: opacity 1s ease-in-out, transform 1s cubic-bezier(0.455, 0.03, 0.515, 0.955); /* Transição suave */
+}
+
+.natura-card__image img.show {
+  opacity: 1;
+  transform: translateY(-20px); /* Torna a imagem visível */
+}
+
+/* Personalização de cada card */
+#card-Abertura .natura-card {
+  min-height: 580px;
+  max-height: 580px;
+}
+
+#card-Linhas {
+  color: #ffffff;
+}
+
+#card-Mutualidade {
+  color: #ffffff;
+}
+
+#card-CPV {
+  color: #ffffff;
+}
+
+#card-Ekos {
+  color: #ffffff;
+}
+
+#card-Kaiak {
+  color: #ffffff;
+}
+
+#card-Refil {
+  color: #ffffff;
+}
+
+#card-Avon {
+  color: #ffffff;
+}
+
+#card-Reconhecimento {
+  color: #ffffff;
+}
+
+#card-Nivel {
+  color: #ffffff;
+}
+#card-Nivel p {
+  margin-bottom: 0;
+}
+
+.wrapper {
+  padding: 20px 0px;
+}
+.wrapper:focus {
+  outline: 0;
+}
+
+.wrapper p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.wrapper:not(:first-child):not(:last-child) .natura-card__logo img {
+  max-width: 55%;
+}
+
+.natura-card {
+  background: transparent;
+  width: 430px;
+  min-height: 500px;
+  max-height: 500px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+  border-radius: 45px;
+  position: relative;
+  text-align: center;
+  z-index: 9999;
+}
+
+.natura-card__image {
+  position: relative;
+  height: auto;
+  min-height: 120px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.natura-card__level {
+  color: #000;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.natura-card__level p {
+  margin: 0;
+}
+
+.natura-card__level--slide1 {
+  color: #D1020A;
+  line-height: 1.2;
+}
+
+.natura-card__level--slide2 {
+  color: #EC4C10;
+}
+
+.natura-card__level--slide3 {
+  color: #A8A875;
+}
+
+.natura-card__level--slide4 {
+  color: #94D4EB;
+}
+
+.natura-card__level--slide5 {
+  color: #B92B02;
+}
+
+.natura-card__level--slide6 {
+  color: #F7BF10;
+}
+
+.natura-card__level--slide9 {
+  color: #000;
+  padding-top: 30px;
+}
+
+.natura-card__unit-name {
+  position: relative;
+  line-height: 0.8;
+  color: black;
+  font-weight: 300;
+  margin-bottom: 5px;
+  margin: auto;
+  text-align: start;
+  padding: 0px 20px;
+}
+
+.natura-card__unit-description {
+  line-height: 1.2;
+  color: #000;
+  font-weight: 300;
+  padding: 0px 10px 15px;
+}
+.natura-card__unit-description p {
+  margin: 0;
+}
+
+.natura-card__unit-stats--slide1 {
+  background: #D1020A;
+}
+.natura-card__unit-stats--slide1 .one-third {
+  border-right: 1px solid #BD7C2F;
+}
+
+.natura-card__unit-stats--slide2 {
+  background: #EC4C10;
+}
+.natura-card__unit-stats--slide2 .one-third {
+  border-right: 1px solid #D04976;
+}
+
+.natura-card__unit-stats--slide3 {
+  background: #A8A875;
+}
+.natura-card__unit-stats--slide3 .one-third {
+  border-right: 1px solid #96965e;
+}
+
+.natura-card__unit-stats--slide4 {
+  background: #94D4EB;
+}
+.natura-card__unit-stats--slide4 .one-third {
+  border-right: 1px solid #7acae6;
+}
+
+.natura-card__unit-stats--slide5 {
+  background: #B92B02;
+}
+.natura-card__unit-stats--slide5 .one-third {
+  border-right: 1px solid #9b2402;
+}
+
+.natura-card__unit-stats {
+  color: white;
+  font-weight: 700;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.natura-card__unit-stats .one-third {
+  width: 33%;
+  float: left;
+  padding: 20px 15px;
+}
+.natura-card__unit-stats sup {
+  position: absolute;
+  bottom: 4px;
+  font-size: 45%;
+  margin-left: 2px;
+}
+.natura-card__unit-stats .stat {
+  position: relative;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.natura-card__unit-stats .stat-value {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+}
+.natura-card__unit-stats .no-border {
+  border-right: none;
+}
+
+.natura-card__logo {
+  padding: 0px 20px 0px;
+  display: flex;
+  flex: auto;
+  align-items: flex-end;
+  justify-content: center;
+}
+.natura-card__logo img {
+  margin: auto;
+  max-width: 166px;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+button :hover {
+  filter: brightness(1.75);
+}/*# sourceMappingURL=style.css.map */
