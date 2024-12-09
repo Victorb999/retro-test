@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", async (e) => {
       // Adiciona botão de download para dispositivos móveis
       if (!isMobile) {
-        const social = panel.querySelector(".slider-nav")
+        const social = document.querySelector(".slider-nav")
         social.style.display = "none"
         const dataUrl = await printPanel()
         await downloadPrint(dataUrl)
