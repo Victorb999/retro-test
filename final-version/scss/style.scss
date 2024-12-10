@@ -738,9 +738,14 @@ body {
 	height: 0;
 }
 
-button :hover {
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
   filter: brightness(1.75);
 }
+
 
 /* Define keyframes */
 @keyframes starAnimation {

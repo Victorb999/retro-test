@@ -40,12 +40,10 @@ $(document).ready(function () {
   // Função para animar os parágrafos e p
   function animateWrapperParagraphs(wrapper) {
     // Desabilita o botão de compartilhamento enquanto a animação ocorre
-    const buttonShare = wrapper
-      .closest(".wrapper")
-      .querySelector(".share-button")
+    var buttonShare = wrapper.closest(".wrapper").querySelector(".share-button")
     if (buttonShare) {
       buttonShare.disabled = true
-      buttonShare.querySelector(".sharebtnbase").style.background = "#ccc"
+      buttonShare.querySelector(".sharebtnbase").style.background = "#CCC"
     }
     // Seleciona os p com a classe "destaque"
     const destaqueParagraph = wrapper.querySelectorAll("p.destaque")
@@ -117,12 +115,17 @@ $(document).ready(function () {
       })
     }
     //habilita o botao quando animação acaba
+    const totalAnimationTime = paragraphs.reduce((total, p, index) => {
+      const delay = parseInt(p.getAttribute("data-delay"), 10) || 300
+      return total + delay * (index + 1)
+    }, 0)
+
     setTimeout(() => {
       if (buttonShare) {
         buttonShare.disabled = false
         buttonShare.querySelector(".sharebtnbase").style.background = "#fff"
       }
-    }, 4000)
+    }, totalAnimationTime + 1000) // Adding the initial delay for destaque paragraphs
   }
 
   // Função para configurar os parágrafos no estado final (opacidade 1)
