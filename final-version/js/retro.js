@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".container")
+  const main = document.querySelector("main")
   const errorMessage = document.querySelector(".error-message")
 
   // Verifica se o dispositivo é mobile ou se o navegador suporta a API de compartilhamento
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Preenche os slides com os dados
   const populateSlides = () => {
     if (!params) {
-      container.style.display = "none"
-      errorMessage.style.display = "block"
+      main.style.display = "none"
+      errorMessage.style.display = "flex"
       return
     }
     rules.forEach((key) => {
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Executa as funções
   populateSlides()
-  rulesShow()
+  if (params) rulesShow()
 
   // Função para converter o conteúdo do card em imagem
   const printPanel = async () => {
