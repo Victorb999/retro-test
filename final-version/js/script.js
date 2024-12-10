@@ -115,9 +115,9 @@ $(document).ready(function () {
       })
     }
     //habilita o botao quando animação acaba
-    const totalAnimationTime = paragraphs.reduce((total, p, index) => {
+    const totalAnimationTime = paragraphs.reduce((total, p) => {
       const delay = parseInt(p.getAttribute("data-delay"), 10) || 300
-      return total + delay * (index + 1)
+      return total + delay + 300
     }, 0)
 
     setTimeout(() => {
